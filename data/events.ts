@@ -28,7 +28,7 @@ export const UPCOMING_EVENTS_DATA: UpcomingEvent[] = [
     "wing": "non-technical",
     "date": "Jul 25, 2026",
     "location": "S.B. Jain Institute of Technology, Management and Research, Nagpur",
-    "image": "/logo.jpg",
+    "image": "/logo/auron.png",
     "description": "The official installation ceremony of Auron's new forum body. Marks the beginning of a fresh term of leadership, vision, and community building."
   },
   {

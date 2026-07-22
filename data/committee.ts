@@ -14,22 +14,54 @@ export interface CommitteeMember {
 export const COMMITTEE_DATA: CommitteeMember[] = [
   /* ---- ADVISOR FACULTY ---- */
   {
-    "id": "dr-a-sharma",
-    "name": "Dr. A. Sharma",
-    "role": "Faculty Advisor",
+    "id": "animesh-sir",
+    "name": "Dr. Animesh",
+    "role": "HoD",
     "tier": "advisor",
     "wing": "advisor",
-    "department": "Department of Computer Science",
-    "linkedin": "#",
+    "department": "Department of CSE(AIML) & IT",
+    "linkedin": "linkedin.com/in/dr-animesh-tayal-5ab477139",
+    "photo": "/photo/animesh.jpeg"
   },
   {
-    "id": "prof-sample-mentor",
-    "name": "Prof. R. Kulkarni",
-    "role": "Co-Advisor",
+    "id": "sweta-boakde",
+    "name": "Ass. Prof. Sweta Bokade",
+    "role": "Technical Advisor",
     "tier": "advisor",
     "wing": "advisor",
-    "department": "Department of Information Technology",
-    "linkedin": "#",
+    "department": "Department of CSE(AIML) & IT",
+    "linkedin": "https://www.linkedin.com/in/sweta-bokade-0a52b624a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    "photo": "/photo/sweta mam.jpeg"
+  },
+  {
+    "id": "falguni-ma'am",
+    "name": "Ass. Prof. Falguni Kalambe",
+    "role": "Non-Technical Advisor",
+    "tier": "advisor",
+    "wing": "advisor",
+    "department": "Department of CSE(AIML) & IT",
+    "linkedin": "linkedin.com/in/falguni-kalambe-970780276",
+    "photo": "/photo/falguni.jpeg",
+  },
+  {
+    "id": "rahul-sir",
+    "name": "Ass. Prof. Rahul",
+    "role": "Technical Advisor",
+    "tier": "advisor",
+    "wing": "advisor",
+    "department": "Department of CSE(AIML) & IT",
+    "linkedin": "https://www.linkedin.com/in/rahul-bambodkar-603a3753/",
+    "photo": "/photo/rahul sir.jpeg"
+  },
+  {
+    "id": "Ravi-raseakr",
+    "name": "Ass. Prof. Ravindra Rasekar",
+    "role": "Non-Technical Advisor",
+    "tier": "advisor",
+    "wing": "advisor",
+    "department": "Department of CSE(AIML) & IT",
+    "linkedin": "linkedin.com/in/ravi-rasekar-4812871a1",
+    "photo": "/ravi-sir.jpeg"
   },
 
   /* ---- TECHNICAL EXECUTIVE ---- */

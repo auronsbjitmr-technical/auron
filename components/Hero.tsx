@@ -177,7 +177,7 @@ export default function Hero() {
 
       <div className="container hero-content">
         <div className="hero-logo-container reveal-element">
-          <Image src="/logo.jpg" alt="AURON Logo" width={150} height={150} priority />
+          <Image src="/logo/auron.png" alt="AURON Logo" width={150} height={150} priority />
         </div>
         <span className="hero-subtitle reveal-element delay-100">Technical & Non-Technical Wings</span>
         <h1 className="hero-title reveal-element delay-200">

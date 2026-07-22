@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 function getInitialDarkMode(): boolean {
-  if (typeof window === "undefined") return true;
+  if (typeof window === "undefined") return false;
   const saved = localStorage.getItem("theme");
-  return saved ? saved === "dark" : true;
+  return saved ? saved === "dark" : false;
 }
 
 export default function Navbar() {
@@ -56,8 +56,8 @@ export default function Navbar() {
     { label: "Vision", href: "/vision" },
     { label: "Committee", href: "/committee" },
     { label: "Events", href: "/events" },
+    { label: "Hall of Fame", href: "/hall-of-fame" },
     { label: "Timeline", href: "/timeline" },
-    { label: "FAQs", href: "/faqs" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -67,7 +67,7 @@ export default function Navbar() {
         {/* Left: Logo */}
         <Link href="/" className="logo" id="nav-brand">
           <div className="logo-icon">
-            <Image src="/logo.jpg" alt="AURON Logo" width={36} height={36} priority />
+            <Image src="/logo/auron.png" alt="AURON Logo" width={36} height={36} priority />
           </div>
           <div className="logo-text">
             AURON

@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="footer-brand">
             <Link href="/" className="logo">
               <div className="logo-icon">
-                <Image src="/logo.jpg" alt="AURON Logo" width={36} height={36} />
+                <Image src="/logo/auron.png" alt="AURON Logo" width={36} height={36} />
               </div>
               <div className="logo-text">
                 AURON

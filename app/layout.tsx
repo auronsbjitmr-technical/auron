@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     siteName: "AURON Forum",
     images: [
       {
-        url: "/logo.jpg",
+        url: "/logo/auron.png",
         width: 1200,
         height: 630,
         alt: "AURON Technical Forum Logo",
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AURON Forum | Technical & Non-Technical Community",
     description: "Official website of AURON Forum at S.B. Jain Institute of Technology. Explore our events, committee members, achievements, and technical workshops.",
-    images: ["/logo.jpg"],
+    images: ["/logo/auron.png"],
   },
 };
 
@@ -94,7 +94,7 @@ const jsonLd = {
   "@type": "EducationalOrganization",
   name: "AURON Technical Forum",
   url: "https://auronforum.com",
-  logo: "https://auronforum.com/logo.jpg",
+  logo: "https://auronforum.com/logo/auron.png",
   description: "Official student technical and non-technical forum of S.B. Jain Institute of Technology, Management and Research, Nagpur.",
   address: {
     "@type": "PostalAddress",
@@ -118,7 +118,7 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}})();`,
+            __html: `(function(){var t=localStorage.getItem('theme');if(t!=='dark'){document.documentElement.setAttribute('data-theme','light');}})();`,
           }}
         />
         <script

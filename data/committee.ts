@@ -15,7 +15,7 @@ export const COMMITTEE_DATA: CommitteeMember[] = [
   /* ---- ADVISOR FACULTY ---- */
   {
     "id": "animesh-sir",
-    "name": "Dr. Animesh",
+    "name": "Dr. Animesh Tayal",
     "role": "HoD",
     "tier": "advisor",
     "wing": "advisor",
@@ -25,17 +25,17 @@ export const COMMITTEE_DATA: CommitteeMember[] = [
   },
   {
     "id": "sweta-boakde",
-    "name": "Ass. Prof. Sweta Bokade",
+    "name": "Prof. Sweta Bokade",
     "role": "Technical Advisor",
     "tier": "advisor",
     "wing": "advisor",
     "department": "Department of CSE(AIML) & IT",
     "linkedin": "https://www.linkedin.com/in/sweta-bokade-0a52b624a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-    "photo": "/photo/sweta mam.jpeg"
+    "photo": "/photo/sweta.jpeg"
   },
   {
     "id": "falguni-ma'am",
-    "name": "Ass. Prof. Falguni Kalambe",
+    "name": "Prof. Falguni Kalambe",
     "role": "Non-Technical Advisor",
     "tier": "advisor",
     "wing": "advisor",
@@ -45,23 +45,23 @@ export const COMMITTEE_DATA: CommitteeMember[] = [
   },
   {
     "id": "rahul-sir",
-    "name": "Ass. Prof. Rahul",
+    "name": "Prof. Rahul Bambodkar",
     "role": "Technical Advisor",
     "tier": "advisor",
     "wing": "advisor",
     "department": "Department of CSE(AIML) & IT",
     "linkedin": "https://www.linkedin.com/in/rahul-bambodkar-603a3753/",
-    "photo": "/photo/rahul sir.jpeg"
+    "photo": "/photo/rahul.jpeg"
   },
   {
     "id": "Ravi-raseakr",
-    "name": "Ass. Prof. Ravindra Rasekar",
+    "name": "Prof. Ravindra Rasekar",
     "role": "Non-Technical Advisor",
     "tier": "advisor",
     "wing": "advisor",
     "department": "Department of CSE(AIML) & IT",
     "linkedin": "linkedin.com/in/ravi-rasekar-4812871a1",
-    "photo": "/ravi-sir.jpeg"
+    "photo": "/photo/ravi.jpeg"
   },
 
   /* ---- TECHNICAL EXECUTIVE ---- */

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Users, Calendar, GraduationCap, Cpu, Award } from "lucide-react";
+import { Users, Calendar } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -12,9 +12,6 @@ if (typeof window !== "undefined") {
 const STATS_DATA = [
   { id: "members", label: "Active Members", target: 500, icon: Users },
   { id: "events", label: "Annual Events", target: 24, icon: Calendar },
-  { id: "workshops", label: "Workshops & Bootcamps", target: 15, icon: GraduationCap },
-  { id: "hackathons", label: "Hackathons Completed", target: 12, icon: Cpu },
-  { id: "achievements", label: "Achievements & Wins", target: 30, icon: Award },
 ];
 
 export default function Stats() {

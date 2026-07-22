@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 const COLLABORATORS = [
-  { name: "Hack with India", logo: "/logo/auron.png" },
-  { name: "CSI", logo: "/logo/auron.png" },
+  { name: "Hack with India", logo: "/logo/hwi.jpg" },
+  { name: "CSI", logo: "/logo/csi.jpg" },
 ];
 
 export default function Sponsors() {

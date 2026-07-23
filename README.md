@@ -105,28 +105,28 @@ If you are on macOS/Linux or prefer the command line, run the following commands
 
 ---
 
-## ✉️ EmailJS Configuration (Contact Form)
+## ✉️ EmailJS Configuration (Contact Form & Event Registration)
 
-The contact form is configured to load EmailJS settings from environment variables in [components/Contact.tsx](file:///c:/Project/Auron/Auron_Website/auron/components/Contact.tsx):
+The contact form and event registration modal are configured to load EmailJS settings from environment variables:
 
-```typescript
-const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_evkz5x8";
-const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_2cu08jp";
-const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "aB8r5qyVP7paTnBCe";
+### 🔧 Configuration Keys
+Configure these keys in a `.env.local` file (for local development) or your production deployment dashboard:
+
+```env
+# EmailJS General Credentials
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+
+# EmailJS Template IDs
+NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID=your_contact_template_id
+NEXT_PUBLIC_EMAILJS_REGISTRATION_TEMPLATE_ID=your_registration_template_id
 ```
 
-### 🔧 Configuration Methods
-
-#### Local Development
-1. Create a `.env.local` file in the root directory (based on `.env.example`).
-2. Add your custom credentials:
-   ```env
-   NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-   NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
-   NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
-   ```
-
-#### Production (Vercel)
-When deploying the repository to **Vercel**, add these three variables under **Settings > Environment Variables** in your Vercel project dashboard to override the default credentials securely.
+### ⚙️ Fallback / Default Configuration
+If environment variables are not set, the application defaults to these fallback values:
+- **Service ID**: `service_evkz5x8`
+- **Public Key**: `aB8r5qyVP7paTnBCe`
+- **Contact Form Template ID**: `template_oiacv5q`
+- **Event Modal Template ID**: `template_2cu08jp`
 
 You can register and manage these credentials on [EmailJS](https://www.emailjs.com/).

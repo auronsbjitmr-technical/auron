@@ -1,7 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { X } from "lucide-react";
+import emailjs from "@emailjs/browser";
+
+const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_evkz5x8";
+const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_REGISTRATION_TEMPLATE_ID || "template_2cu08jp";
+const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "aB8r5qyVP7paTnBCe";
 
 interface EventModalProps {
   isOpen: boolean;
@@ -18,9 +23,13 @@ export default function EventModal({ isOpen, onClose, eventName }: EventModalPro
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
+  useEffect(() => {
+    emailjs.init(PUBLIC_KEY);
+  }, []);
+
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus(null);
 
@@ -35,11 +44,41 @@ export default function EventModal({ isOpen, onClose, eventName }: EventModalPro
     }
 
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: name,
+          email: email,
+          roll: roll,
+          semester: `Semester ${semester}`,
+          event_name: eventName,
+          time: new Date().toLocaleString(),
+          reply_to: email,
+        },
+        PUBLIC_KEY
+      );
       setStatus({ type: "success", text: `Registration Successful! Ticket sent to ${email}` });
-      setTimeout(onClose, 2000);
-    }, 1500);
+      setName("");
+      setEmail("");
+      setRoll("");
+      setSemester("");
+      setTimeout(onClose, 2500);
+    } catch (err: unknown) {
+      console.error("EmailJS Event Registration Error:", err);
+      const errObj = err as { text?: string; status?: number; message?: string };
+      const detail = errObj.text || errObj.message || (typeof err === "string" ? err : "");
+      
+      setStatus({ 
+        type: "error", 
+        text: detail 
+          ? `Registration failed (${errObj.status || "API"}): ${detail}.` 
+          : "Failed to send registration confirmation email. Please try again." 
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

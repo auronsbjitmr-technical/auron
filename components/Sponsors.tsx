@@ -6,8 +6,6 @@ const COLLABORATORS = [
 ];
 
 export default function Sponsors() {
-  const duplicatedCollabs = [...COLLABORATORS, ...COLLABORATORS, ...COLLABORATORS, ...COLLABORATORS];
-
   return (
     <section className="section-padding py-16" id="collaborators" style={{ background: "var(--bg-primary)" }}>
       <div className="container">

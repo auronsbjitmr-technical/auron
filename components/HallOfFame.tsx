@@ -8,7 +8,7 @@ interface HallOfFameProps {
 }
 
 export default function HallOfFame({ onImageClick }: HallOfFameProps) {
-  const images = HALL_OF_FAME_PHOTOS.map((photo) => ({
+  const images = [...HALL_OF_FAME_PHOTOS].reverse().map((photo) => ({
     src: photo.src,
     title: photo.alt,
   }));
@@ -26,7 +26,7 @@ export default function HallOfFame({ onImageClick }: HallOfFameProps) {
         </div>
 
         <div className="hall-of-fame-grid reveal-element">
-          {HALL_OF_FAME_PHOTOS.map((photo, idx) => (
+          {[...HALL_OF_FAME_PHOTOS].reverse().map((photo, idx) => (
             <div
               key={photo.id}
               className="hall-of-fame-item"

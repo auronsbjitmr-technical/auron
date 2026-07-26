@@ -652,7 +652,7 @@ html {
   background: var(--gold-gradient);
   color: #ffffff !important;
   font-weight: 700;
-  padding: 9px 22px;
+  padding: 12px 28px;
   border-radius: var(--radius-full);
   box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.15);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);

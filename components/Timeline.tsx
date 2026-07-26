@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Flag, Lightbulb, Code, Trophy } from "lucide-react";
 
-import { PAST_EVENTS_DATA, UPCOMING_EVENTS_DATA } from "@/data/events";
+import { PAST_EVENTS_DATA, UPCOMING_EVENTS_DATA, classifyEvents } from "@/data/events";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -37,25 +37,53 @@ function parseEventDate(dateStr: string): number {
   return isNaN(fallback) ? 0 : fallback;
 }
 
-const TIMELINE_DATA = [
-  ...PAST_EVENTS_DATA.map((e) => ({
-    date: e.date,
-    heading: e.title,
-    text: e.description,
-    icon: getEventIcon(e.tag || e.category),
-  })),
-  ...UPCOMING_EVENTS_DATA.map((e) => ({
-    date: e.date,
-    heading: e.title,
-    text: e.description,
-    icon: getEventIcon(e.category),
-  })),
-].sort((a, b) => parseEventDate(a.date) - parseEventDate(b.date));
-
 export default function Timeline() {
   const progressBarRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const [timelineData, setTimelineData] = useState(() => {
+    const { past, upcoming, featured } = classifyEvents();
+    const autoPastEvents = PAST_EVENTS_DATA.map((e) => ({
+      date: e.date,
+      heading: e.title,
+      text: e.description,
+      icon: getEventIcon(e.tag || e.category),
+    }));
+    const classifiedUpcoming = [...past, ...(featured ? [featured] : []), ...upcoming].map((e) => ({
+      date: e.date,
+      heading: e.title,
+      text: e.description,
+      icon: getEventIcon(e.category),
+    }));
+    return [...autoPastEvents, ...classifiedUpcoming].sort(
+      (a, b) => parseEventDate(a.date) - parseEventDate(b.date)
+    );
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const { past, upcoming, featured } = classifyEvents();
+      const autoPastEvents = PAST_EVENTS_DATA.map((e) => ({
+        date: e.date,
+        heading: e.title,
+        text: e.description,
+        icon: getEventIcon(e.tag || e.category),
+      }));
+      const classifiedUpcoming = [...past, ...(featured ? [featured] : []), ...upcoming].map((e) => ({
+        date: e.date,
+        heading: e.title,
+        text: e.description,
+        icon: getEventIcon(e.category),
+      }));
+      setTimelineData(
+        [...autoPastEvents, ...classifiedUpcoming].sort(
+          (a, b) => parseEventDate(a.date) - parseEventDate(b.date)
+        )
+      );
+    }, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -100,7 +128,7 @@ export default function Timeline() {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [timelineData]);
 
   return (
     <section className="section-padding timeline-section" id="timeline">
@@ -116,7 +144,7 @@ export default function Timeline() {
           </div>
 
           <div className="timeline-items">
-            {TIMELINE_DATA.map((item, idx) => {
+            {timelineData.map((item, idx) => {
               const Icon = item.icon;
               const sideClass = idx % 2 === 0 ? "left" : "right";
 

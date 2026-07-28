@@ -24,6 +24,17 @@ export interface PastEvent {
 
 export const UPCOMING_EVENTS_DATA: UpcomingEvent[] = [
   {
+    "id": "forum-installation-2026",
+    "title": "Forum Installation Ceremony",
+    "category": "CEREMONY",
+    "wing": "hybrid",
+    "date": "Jul 25, 2026",
+    "dateISO": "2026-07-25T18:30:00",
+    "location": "S.B. Jain Institute of Technology, Management and Research, Nagpur",
+    "image": "/logo/auron.png",
+    "description": "The official installation ceremony of Auron's new forum body. Marks the beginning of a fresh term of leadership, vision, and community building."
+  }
+  , {
     "id": "tug-of-war-2026",
     "title": "Tug of War",
     "category": "SPORTS",
@@ -213,17 +224,17 @@ export const UPCOMING_EVENTS_DATA: UpcomingEvent[] = [
 ];
 
 export const PAST_EVENTS_DATA: PastEvent[] = [
-  {
-    "id": "forum-installation-2026",
-    "title": "Forum Installation Ceremony",
-    "category": "CEREMONY",
-    "wing": "non-technical",
-    "date": "Jul 25, 2026",
-    "dateISO": "2026-07-25T18:30:00",
-    "image": "/logo/auron.png",
-    "description": "The official installation ceremony of Auron's new forum body. Marks the beginning of a fresh term of leadership, vision, and community building.",
-    "tag": "INSTALLATION"
-  }
+  // {
+  //   "id": "forum-installation-2026",
+  //   "title": "Forum Installation Ceremony",
+  //   "category": "CEREMONY",
+  //   "wing": "non-technical",
+  //   "date": "Jul 25, 2026",
+  //   "dateISO": "2026-07-25T18:30:00",
+  //   "image": "/logo/auron.png",
+  //   "description": "The official installation ceremony of Auron's new forum body. Marks the beginning of a fresh term of leadership, vision, and community building.",
+  //   "tag": "INSTALLATION"
+  // }
 ];
 
 export interface EventClassification {

@@ -9,7 +9,10 @@ export default function Events() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [now, setNow] = useState(Date.now());
 
-  const { featured, upcoming, past } = useMemo(() => classifyEvents(), [now]);
+  const { featured, upcoming, past } = useMemo(() => {
+    const classified = classifyEvents();
+    return { ...classified, upcoming: classified.upcoming.slice(0, 3) };
+  }, [now]);
 
   useEffect(() => {
     const interval = setInterval(() => setNow(Date.now()), 60000);
@@ -80,7 +83,7 @@ export default function Events() {
         />
         <span className="event-overlay-badge">{event.category}</span>
         <span className={`event-wing-badge ${event.wing}`}>
-          {event.wing === "technical" ? "TECH" : "OPS"}
+          {event.wing === "technical" ? "TECH" : event.wing === "hybrid" ? "HYBRID" : "OPS"}
         </span>
       </div>
 
@@ -130,7 +133,7 @@ export default function Events() {
 
               <div className="featured-event-details">
                 <span className={`featured-wing-label ${featured.wing}`}>
-                  {featured.wing === "technical" ? "TECHNICAL WING" : "NON-TECHNICAL WING"}
+                  {featured.wing === "technical" ? "TECHNICAL WING" : featured.wing === "hybrid" ? "HYBRID WING" : "NON-TECHNICAL WING"}
                 </span>
                 <h3 className="featured-title-text">{featured.title}</h3>
                 <p className="featured-desc-text">{featured.description}</p>

@@ -5,19 +5,23 @@ export interface FaqItem {
 
 export const FAQS_DATA: FaqItem[] = [
   {
-    "question": "Who can join Auron Technical Forum?",
-    "answer": "Auron is open to all students within the engineering and technical departments. Whether you are a beginner interested in coding or a seasoned builder looking to guide teams, we have a place for you!"
+    question: "What are the core objectives of Auron Technical Forum?",
+    answer: "Auron Technical Forum aims to bridge the gap between academic learning and industry expectations by promoting innovation, technical excellence, research, entrepreneurship, and collaborative problem-solving through impactful learning experiences."
   },
   {
-    "question": "Are upcoming events free of charge?",
-    "answer": "Almost all of our technical workshops, code jams, and guest lectures are completely free for students. Certain national hackathons might have a nominal fee to support logistics, food, and starter kits."
+    question: "Does Auron Technical Forum collaborate with industry and professional organizations?",
+    answer: "Yes, the forum actively seeks collaborations with Computer Society of India (CSI) and Hack With India (HWI) to provide students with exposure to technologies, mentorship opportunities, and real-world learning experiences."
   },
   {
-    "question": "How do I contact the executive committee members?",
-    "answer": "You can reach out to us by filling out the Contact Us form on this website, or connect directly with any executive member via their LinkedIn profiles linked in the Committee section."
+    question: "What types of events can I expect throughout the year?",
+    answer: "We organize a diverse range of technical and non-technical events, including hackathons, coding competitions, workshops, seminars, networking opportunities, sports, and cultural events throughout the year."
   },
   {
-    "question": "Can I propose a new student-led project or workshop?",
-    "answer": "Absolutely! Auron is a student-driven initiative. You can submit a project proposal or workshop pitch to any executive member or contact us using the email to schedule a pitch meeting."
+    question: "How will I receive updates on upcoming events and activities?",
+    answer: "All updates regarding events, workshops, competitions, and other activities are shared through our official website and verified social media platforms."
+  },
+  {
+    question: "How can students participate beyond attending events?",
+    answer: "Students can participate beyond attending events by volunteering for various forum activities, collaborating with the organizing team, and supporting technical and non-technical initiatives."
   }
 ];

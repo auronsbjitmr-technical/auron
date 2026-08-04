@@ -1,108 +1,412 @@
-# 📖 AI Catalog — AURON Technical Forum
+# 📖 AI Catalog — AURON Forum Developer & Agent Handbook
 
-Welcome to the AI Architecture Catalog for the AURON Technical Forum web application. This file lists system designs, conventions, layouts, and configurations to facilitate rapid onboarding for developers and AI agents.
-
----
-
-## 🏗️ Project Architecture
-
-The application is built using **Next.js 16 (App Router)** and **TypeScript**, configured with static pre-rendering where appropriate to leverage the Vercel Edge Network. 
-
-### 1. Key Framework Patterns
-* **App Router Layouts:** Standard nested layouts with dynamic metadata extraction.
-* **Derived State Synchronization:** State synchronizations (e.g. in [Lightbox.tsx](file:///c:/Project/Auron/Auron_Website/auron/components/Lightbox.tsx)) are resolved in-render rather than triggering cascade effects during hydration.
-* **Conditional Mounting:** Modal forms are conditionally mounted on `isOpen` state to avoid manual resets of form states inside lifecycle effects.
-
-### 2. Design System & Styling
-* **Vanilla CSS Layouts:** Pure CSS variables defined in [globals.css](file:///c:/Project/Auron/Auron_Website/auron/app/globals.css) for maximum rendering performance.
-* **Liquid Glassmorphism:** Theme tokens configured for custom glass containers, overlays, backdrop blurs, and pointer-tracking spotlights.
-* **Custom Scroll Dynamics:** Custom smooth scrolling managed site-wide by [Lenis](https://lenis.darkroom.engineering/) and integrated with GreenSock (GSAP) animations.
+Welcome to the definitive AI Architecture and Development Handbook for the AURON Forum web application. This document acts as an exhaustive system blueprint. If you are an AI coding assistant or a developer onboarding to this project, this file contains everything you need to understand, maintain, debug, and extend this codebase as if you built it yourself.
 
 ---
 
-## 📁 Folder Structure
+## 🏗️ 1. Core Architecture & Philosophy
+
+The application is a high-fidelity, high-performance community portal built on **Next.js 16 (App Router)** and **React 19**, written in **TypeScript**. 
+
+### Dynamic-Interactive Edge Philosophy
+To achieve maximum rendering speed and visual fluidity:
+* **Inertial Smooth Scrolling:** Managed globally by [Lenis](https://lenis.darkroom.engineering/) and integrated directly with GreenSock (GSAP) ScrollTrigger timeline updates.
+* **Double-Layer Custom Cursor:** Tracks page coordinates in real-time, adapting its scale and style on interactive target hits, with spring-like magnetic pull logic.
+* **Tilt & Spotlight Lighting:** Interactive components utilize pure CSS variables for mouse spotlight coordinate mapping combined with 3D matrix card tilts.
+* **Zero-Cascading Hydration Resets:** State dependencies are structured around render-time derivation to prevent hydration mismatches and cascade-re-renders.
+* **Conditional Overlay Mounts:** Modals are conditionally rendered on boolean triggers, ensuring clean resets of inner states upon closures.
+
+---
+
+## 📁 2. File & Directory Blueprints
 
 ```
 auron/
-├── app/                        # Next.js App Router folders
-│   ├── achievements/           # Achievements page
-│   ├── committee/              # Committee page
-│   ├── contact/                # Contact Us page
-│   ├── events/                 # Events directory
-│   ├── faqs/                   # FAQs accordion list
-│   ├── gallery/                # Image gallery routes
-│   ├── timeline/               # Retro timeline path
-│   ├── vision/                 # Forum's core values
-│   ├── layout.tsx              # Root Layout with Font & Meta setups
-│   └── globals.css             # Vanilla CSS design tokens & layouts
-├── components/                 # Isolated UI components
-│   ├── CustomCursor.tsx        # GSAP cursor snapping
-│   ├── Contact.tsx             # Contact form integrated with EmailJS
-│   ├── Lightbox.tsx            # Zoomable full-screen slider
-│   ├── GlobalScrollManager.tsx # Smooth-scrolling coordinator
-│   └── ...
-├── data/                       # Local structured data catalogs
-│   ├── committee.ts            # Member profiles list
-│   ├── events.ts               # Timeline events data
-│   └── faqs.ts                 # FAQs list
-├── public/                     # Static media assets & vector icons
-├── .env.example                # Template for environment settings
-├── package.json                # Dependencies configuration
-└── start.bat                   # Automated windows developer environment launcher
+├── app/                              # Next.js App Router Root
+│   ├── achievements/                 # Hall of Fame and Testimonials Page
+│   │   └── page.tsx                  # Layout importing Achievements & Alumni components
+│   ├── committee/                    # Executive Committee Page
+│   │   └── page.tsx                  # Static route loading Committee Client component
+│   ├── contact/                      # Contact Us Page
+│   │   └── page.tsx                  # Loads EmailJS contact form wrapper
+│   ├── events/                       # Event Hub Page
+│   │   └── page.tsx                  # Main router page executing client controllers
+│   ├── faqs/                         # Interactive Accordion Page
+│   │   └── page.tsx                  # Loads Faq component list
+│   ├── gallery/                      # Media Showcase Page
+│   │   └── page.tsx                  # Executes GalleryPageClient for media lightbox triggers
+│   ├── timeline/                     # Milestones Journey Page
+│   │   └── page.tsx                  # Integrates GSAP ScrollTrigger timeline wrapper
+│   ├── vision/                       # Department core values Page
+│   │   └── page.tsx                  # Renders core Vision and Mission cards
+│   ├── globals.css                   # Core Stylesheet containing all CSS Variables, Custom themes & UI elements
+│   ├── layout.tsx                    # Root Layout configuring custom fonts, SEO Metadata and Global wrappers
+│   └── page.tsx                      # Landing homepage hosting Hero, Stats & Sponsors
+├── components/                       # Modular UI Components
+│   ├── Achievements.tsx              # Renders national awards cards
+│   ├── Alumni.tsx                    # Graduate networks testimonials cards
+│   ├── Committee.tsx                 # Leaders list with wing filtering and sparkly hover overlays
+│   ├── Contact.tsx                   # EmailJS integrated input form with floating labels
+│   ├── CustomCursor.tsx              # GSAP client mouse coordinator and magnet pulling listeners
+│   ├── EventModal.tsx                # Ticket validation registration form modal
+│   ├── Events.tsx                    # Featured events display with countdown and registration triggers
+│   ├── EventsPageClient.tsx          # Client controller linking Events & PastEvents to global modals
+│   ├── Faq.tsx                       # Details-summary style accordion list with height transitions
+│   ├── Footer.tsx                    # Global site footer containing copyright and social vectors
+│   ├── GalleryPageClient.tsx         # Client controller dispatching lightbox images on click
+│   ├── GlobalModals.tsx              # Core modal listener (Lightbox, Event registration, custom cursor mounting)
+│   ├── GlobalScrollManager.tsx       # Lenis initialization, RAF loop, reveal elements animations
+│   ├── Hero.tsx                      # Canvas background particles particle system, theme observer, logo vectors
+│   ├── InitialLoaderWrapper.tsx      # Handles the entry logo intro splash animation using session storage
+│   ├── Lightbox.tsx                  # Fullscreen image swiper with derived-state index synchronizations
+│   ├── Loader.tsx                    # Visual layout spinner markup and GSAP intro sequences
+│   ├── Navbar.tsx                    # Global responsive header, scrolled blur styles, mobile layout controls
+│   ├── PastEvents.tsx                # Gallery card grid sorting by category and operations wing
+│   ├── Sponsors.tsx                  # Logotype scrolling grids for corporate partners
+│   ├── Stats.tsx                     # Numeric department milestones
+│   ├── Testimonials.tsx              # Alumni sliders (reused inside Alumni page)
+│   ├── Timeline.tsx                  # Horizontal timeline cards synced to scroll heights
+│   └── VisionMission.tsx             # 3D interactive tilting Vision and Mission cards
+├── data/                             # Mock databases
+│   ├── committee.ts                  # Array of leaders containing name, wing, tier, role, social links, and photos
+│   ├── events.ts                     # Arrays representing upcoming & past events schedules
+│   └── faqs.ts                       # Frequently Asked Questions database
+├── public/                           # Vector icons, logo images, and static resources
+├── .env.example                      # Production template environment credentials
+├── package.json                      # Dependency manager (react 19, next 16, gsap, lenis)
+└── start.bat                         # Automated Windows local environment setup script
 ```
 
 ---
 
-## 🔌 Dependencies & Packages
+## 🎨 3. Styling & Color Systems
 
-Core packages utilized in the project:
-* `next` (16.2.10) - React framework
-* `react` / `react-dom` (19.2.4) - Client UI rendering engine
-* `typescript` (5.x) - Strict type safety compiler
-* `gsap` (3.15.0) - High-performance custom micro-animations & ScrollTrigger
-* `lenis` (1.3.25) - Smooth scroll implementation
-* `@emailjs/browser` (4.4.1) - Client-side direct email dispatch service
-* `lucide-react` (1.25.0) - Design vector icon package
+All custom designs are written in Vanilla CSS within [app/globals.css](file:///c:/Project/Auron/Auron_Website/auron/app/globals.css).
+
+### 3.1 Custom Theming System (Theme Inversion Warning)
+The theme configuration utilizes a custom structure. **The default `:root` selector holds the "Dark" theme values, and the `[data-theme="light"]` attribute selector overrides variables with "Gold" dark styling.**
+
+* **Default Theme (White & Dark Blue):** Active on load when no theme state is configured. It sets a clean white backdrop with blue accent borders.
+* **Light Theme Class (Dark Navy & Gold):** Activated when `data-theme="light"` is assigned to `<html>`. It defines a dark space background with gold/orange gradients.
+
+#### Variable Definitions Breakdown:
+```css
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f8fc;
+  --bg-tertiary: #e8eff7;
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --text-primary: #0a1628;
+  --text-secondary: #2c3e5a;
+  --text-muted: #6b7c97;
+  --color-gold: #0d47a1; /* Maps accent color to Blue in default mode */
+  --gold-gradient: linear-gradient(135deg, #0d47a1 0%, #1565c0 25%, #1976d2 50%, #1e88e5 75%, #0d47a1 100%);
+}
+
+[data-theme="light"] {
+  --bg-primary: #020b18;
+  --bg-secondary: #051329;
+  --bg-tertiary: #081e3f;
+  --bg-glass: rgba(2, 11, 24, 0.5);
+  --text-primary: #ffffff;
+  --text-secondary: #abc4e3;
+  --text-muted: #6481a5;
+  --color-gold: #d4af37; /* Overrides accent to gold/amber */
+  --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+}
+```
+
+### 3.2 Glassmorphism Components
+Cards are built using glassmorphism layers to match the modern fluid layout:
+* **`.glass-card`:** Custom overlays featuring background blur (`backdrop-filter: blur(14px)`), semi-transparent borders, and radial glow backdrops.
+* **`.card-border-glow`:** Absolute positioned elements reflecting card bounds with high z-index and glowing radial highlights.
+* **`--mouse-x` and `--mouse-y` variables:** Injected dynamically by component hover handlers to position the radial spotlight gradient.
+
+```css
+.glass-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(14px);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), var(--border-glow-color), transparent 40%);
+  z-index: 3;
+  pointer-events: none;
+}
+```
 
 ---
 
-## 🔐 Environment Variables
+## ⚡ 4. Animation & Interaction Frameworks
 
-The project uses client-exposed environment variables for EmailJS service connection configuration:
+Animations are driven by **GSAP (GreenSock Animation Platform)** and **Lenis Smooth Scroll**.
 
-| Name | Type | Purpose |
-| :--- | :--- | :--- |
-| `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | String | EmailJS Mail Service Identifier |
-| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | String | EmailJS Mail Template Identifier |
-| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | String | EmailJS Account Public API Key |
+### 4.1 Custom Cursor Coordination ([components/CustomCursor.tsx](file:///c:/Project/Auron/Auron_Website/auron/components/CustomCursor.tsx))
+Implements a dual-layered cursor system containing:
+1. **`.custom-cursor` (Direct Track):** Inner dot pinned directly to mouse client coordinates (`clientX`/`clientY`).
+2. **`.custom-cursor-follower` (Inertial Lag):** Outer circle tracking the mouse coordinates with a Linear Interpolation (LERP) easing function.
 
-*Note: In local development, these variables are loaded from `.env.local`. When deploying on Vercel, configure them in the Vercel Dashboard under **Environment Variables**.*
+#### Core Loop:
+```typescript
+let mouseX = 0, mouseY = 0;
+let followerX = 0, followerY = 0;
+
+const onMouseMove = (e: MouseEvent) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top = mouseY + 'px';
+};
+
+const tickFollower = () => {
+  followerX += (mouseX - followerX) * 0.15; // LERP formula
+  followerY += (mouseY - followerY) * 0.15;
+  follower.style.left = followerX + 'px';
+  follower.style.top = followerY + 'px';
+  frameId = requestAnimationFrame(tickFollower);
+};
+```
+
+#### Magnetic Snap Pull:
+Adding `.magnetic-element` class triggers snapping. On `mousemove`, the component calculates offsets from the center of the element and uses GSAP to translate the element toward the cursor:
+```typescript
+const rect = htmlEl.getBoundingClientRect();
+const x = e.clientX - rect.left - rect.width / 2;
+const y = e.clientY - rect.top - rect.height / 2;
+gsap.to(htmlEl, { x: x * 0.35, y: y * 0.35, duration: 0.3, ease: "power2.out" });
+```
+Upon `mouseleave`, an elastic GSAP ease snaps the element back to center:
+```typescript
+gsap.to(htmlEl, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+```
+
+#### Interactive Scaling Classes:
+The custom cursor monitors `mouseover` and `mouseout` events. Target elements matching the selector list below receive `.cursor-hover` and `.cursor-follower-hover` classes for dynamic visual feedback:
+* `a, button, .filter-btn, .wing-filter-btn, .bearer-card, .event-card, .glass-card, .testimonial-indicator, .faq-question, .test-nav-btn, .lightbox-arrow, .lightbox-close`
 
 ---
 
-## 🚀 Deployment Process
-
-### Local Development
-Double-click [start.bat](file:///c:/Project/Auron/Auron_Website/auron/start.bat) in the project folder to start the environment automatically.
-
-### Production / Vercel Deploy
-This project is configured for **zero-config direct deployment** on Vercel:
-1. Import this repository in the Vercel dashboard.
-2. Add the Environment Variables (if customized).
-3. Click **Deploy**. Vercel will automatically run `npm run build` and launch static page prerendering.
+### 4.2 Smooth Scrolling & Viewport Reveals ([components/GlobalScrollManager.tsx](file:///c:/Project/Auron/Auron_Website/auron/components/GlobalScrollManager.tsx))
+Synchronizes viewport scroll loops with Lenis smooth-scroller and GSAP ScrollTrigger.
+* **Instance Caching:** The instantiated Lenis object is mapped directly to `window.lenisInstance` to allow lifecycle stop/start controls during modal overlays.
+* **Reveal Elements (`.reveal-element`):** Registers ScrollTrigger on elements, translating them upward and fading them in once they cross the `top 90%` viewport threshold.
+* **Parallax Background Elements (`.gold-glow`):** Synchronizes vertical position offsets (`yPercent: -20`) with ScrollTrigger scrubs.
 
 ---
 
-## 📝 Coding Conventions
-
-1. **Client-Side Components:** Must use `"use client";` at the top of the file if importing hooks (`useState`, `useEffect`, etc.).
-2. **Ref-safe Callbacks:** Any handler function triggered by window event listeners must be wrapped in `useCallback` to prevent memory leaks and redundant listener re-registration.
-3. **No Hardcoded Secrets:** All external API endpoints or credentials must be read from `process.env` with sensible local fallbacks.
-4. **Semantic HTML:** All visual divisions must rely on standard semantic boundaries (`<main>`, `<header>`, `<footer>`, `<section>`).
+### 4.3 Scroll-Linked Height Timelines ([components/Timeline.tsx](file:///c:/Project/Auron/Auron_Website/auron/components/Timeline.tsx))
+Tracks scroll progression down the timeline section.
+* Uses GSAP context scoping (`gsap.context()`) to cleanup listeners safely.
+* Drives the high-level progression bar element (`#timeline-scroll-progress`) height from `0%` to `100%` corresponding to the timeline container boundaries:
+```typescript
+gsap.fromTo(
+  progressBar,
+  { height: "0%" },
+  {
+    height: "100%",
+    scrollTrigger: {
+      trigger: container,
+      start: "top 80%",
+      end: "bottom 20%",
+      scrub: 0.3,
+    },
+  }
+);
+```
 
 ---
 
-## 🔮 Future Roadmap
-* **Dynamic Event API Integration:** Fetch event schedules from a database/CMS instead of localized TypeScript arrays.
-* **User Authentication:** Allow council heads to upload images to the Gallery section directly from a secure admin dashboard page.
-* **Enhanced Offline Service Worker:** Support progressive web app caching for offline viewing of event guides.
+## 🔀 5. Global State & Communication Architecture
+
+To avoid complex state-management architectures (Redux, Zustand) and keep page rendering fast, the application coordinates interactive modules (modals, lightboxes) using **custom DOM events**.
+
+```mermaid
+sequenceDiagram
+    participant Component as Interactive Component
+    participant Window as DOM Window
+    participant Modals as GlobalModals.tsx
+    participant Scroll as GlobalScrollManager (Lenis)
+
+    Component->>Window: dispatchEvent(new CustomEvent('open-register-modal', { detail: { eventName } }))
+    Window->>Modals: Event trigger captured by listener
+    Modals->>Scroll: Stop Lenis scroll (window.lenisInstance.stop())
+    Modals->>Modals: Set modalOpen = true
+    Note over Modals: EventModal is rendered
+    Modals->>Window: User closes modal
+    Modals->>Scroll: Resume Lenis scroll (window.lenisInstance.start())
+    Modals->>Modals: Set modalOpen = false
+```
+
+### 5.1 Registration Modal Triggers
+When clicking "Register Now" or "Get Ticket" cards:
+1. Components dispatch a custom `'open-register-modal'` event containing the selected event's name.
+2. [GlobalModals.tsx](file:///c:/Project/Auron/Auron_Website/auron/components/GlobalModals.tsx) intercepts the event, stops smooth scrolling via `window.lenisInstance.stop()`, disables viewport overflow, and mounts [EventModal.tsx](file:///c:/Project/Auron/Auron_Website/auron/components/EventModal.tsx).
+3. The modal features forms with floating input labels, roll validation, regex email checking, and standard ticket animations.
+4. On closure, the page triggers `window.lenisInstance.start()` to restore viewport scrolling.
+
+### 5.2 Lightbox Swiper Triggers
+When clicking gallery images:
+1. Components dispatch the `'open-lightbox'` event with an payload structure: `{ index, images: [{ src, title }] }`.
+2. [GlobalModals.tsx](file:///c:/Project/Auron/Auron_Website/auron/components/GlobalModals.tsx) intercepts the payload, configures [Lightbox.tsx](file:///c:/Project/Auron/Auron_Website/auron/components/Lightbox.tsx), and locks scrolling.
+3. [Lightbox.tsx](file:///c:/Project/Auron/Auron_Website/auron/components/Lightbox.tsx) uses a **Derived State** design pattern to align the current slider index with the clicked index to prevent sync lag between React render passes:
+```typescript
+const [prevInitialIndex, setPrevInitialIndex] = useState(initialIndex);
+const [currentIndex, setCurrentIndex] = useState(initialIndex);
+
+if (initialIndex !== prevInitialIndex) {
+  setPrevInitialIndex(initialIndex);
+  setCurrentIndex(initialIndex);
+}
+```
+
+---
+
+## 🔌 6. External Integrations (EmailJS System)
+
+The Contact page ([components/Contact.tsx](file:///c:/Project/Auron/Auron_Website/auron/components/Contact.tsx)) dispatches submissions directly to the department's email inbox using the `@emailjs/browser` client SDK.
+
+### 6.1 Credentials Structure
+The component loads connection credentials from environment variables. Local environment fallback structures are hardcoded to direct mails to the forum's default account:
+
+* **Default Mailbox Keys:**
+  * `Service ID:` `service_evkz5x8`
+  * `Template ID:` `template_2cu08jp`
+  * `Public API Key:` `aB8r5qyVP7paTnBCe`
+
+### 6.2 Environment Variable Configuration
+To configure or override target mail routes in production:
+```env
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_custom_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_custom_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_custom_public_key
+```
+
+---
+
+## 🛠️ 7. Extension Playbook (Step-by-Step Guides)
+
+This playbook explains how to add new pages, components, animations, and data records.
+
+### 7.1 How to Add a New Page
+1. **Create Directory:** Under `app/`, create a new folder (e.g. `app/news/`).
+2. **Create Page File:** Create `page.tsx`. Add SEO metadata and import page client assets:
+   ```typescript
+   import type { Metadata } from "next";
+   import NewsPageClient from "@/components/NewsPageClient";
+
+   export const metadata: Metadata = {
+     title: "Latest News | AURON Forum",
+     description: "Updates and announcements from the committee.",
+   };
+
+   export default function NewsPage() {
+     return <NewsPageClient />;
+   }
+   ```
+3. **Register Route link:** Add the page route to the `navLinks` list in [Navbar.tsx](file:///c:/Project/Auron/Auron_Website/auron/components/Navbar.tsx) to add it to the header navigation.
+
+---
+
+### 7.2 How to Add a New Interactive Component
+Follow this template to construct custom interactive sections that align with the site's layout conventions and animations:
+
+```typescript
+"use client";
+
+import React, { useRef } from "react";
+
+export default function CustomShowcase() {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Mouse 3D Rotate & Glow Spotlight Effect
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateX = -((y - rect.height / 2) / rect.height) * 8;
+    const rotateY = ((x - rect.width / 2) / rect.width) * 8;
+
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
+  };
+
+  const handleMouseLeave = () => {
+    if (cardRef.current) {
+      cardRef.current.style.transform = "rotateX(0deg) rotateY(0deg) translateY(0px)";
+    }
+  };
+
+  return (
+    <section className="section-padding">
+      <div className="container">
+        {/* Scroll Reveal Wrapper */}
+        <div className="section-header reveal-element">
+          <span className="section-subtitle">Highlights</span>
+          <h2 className="section-title">New Showcase</h2>
+        </div>
+
+        {/* 3D Glass Card wrapper */}
+        <div 
+          ref={cardRef}
+          className="glass-card tilt-card reveal-element magnetic-element"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="spotlight" />
+          <div className="card-border-glow" />
+          <h4>Card Heading</h4>
+        </div>
+      </div>
+    </section>
+  );
+}
+```
+
+#### Key Styling Conventions checklist:
+- Wrap visual boundaries inside `.section-padding` and `.container`.
+- Apply `.reveal-element` to components that should fade in dynamically when scrolled into view.
+- Apply `.magnetic-element` to trigger snapping behaviors for elements like buttons or custom tags.
+- Nest `.spotlight` and `.card-border-glow` inside `.glass-card` elements to enable the hover spotlight tracker.
+
+---
+
+### 7.3 How to Add Static Data
+* **Events Database:** Update [data/events.ts](file:///c:/Project/Auron/Auron_Website/auron/data/events.ts). Append a new event object to `UPCOMING_EVENTS_DATA` or `PAST_EVENTS_DATA`. Ensure the `wing` property is set to `'technical'` or `'non-technical'` to preserve category filter matching.
+* **Committee Database:** Update [data/committee.ts](file:///c:/Project/Auron/Auron_Website/auron/data/committee.ts). Append a new member object conforming to the `CommitteeMember` type. Specify the appropriate `tier` (`'advisor'`, `'primary'`, `'secondary'`, or `'tertiary'`) to maintain layout ordering.
+
+---
+
+## 🚀 8. Build, Execution & Deployment Operations
+
+### 8.1 Setup Commands
+Restore libraries and run the local development server:
+```bash
+# Clean Install
+npm install
+
+# Start Local Dev
+npm run dev
+
+# Lint Project
+npm run lint
+
+# Compile Build
+npm run build
+```
+
+### 8.2 Production Deployment (Vercel)
+This codebase is pre-configured for static pre-rendering on Vercel. 
+1. Push all codebase changes to your Git repository.
+2. Link the repository inside the Vercel Dashboard.
+3. Configure the custom EmailJS environment variables (if overriding defaults).
+4. Click **Deploy**. Vercel will run `npm run build` and distribute the prerendered HTML output across the Edge Network.

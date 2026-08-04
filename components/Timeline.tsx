@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Flag, Lightbulb, Code, Trophy } from "lucide-react";
 
-import { PAST_EVENTS_DATA, UPCOMING_EVENTS_DATA, classifyEvents } from "@/data/events";
+import { PAST_EVENTS_DATA, classifyEvents } from "@/data/events";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);

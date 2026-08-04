@@ -7,7 +7,7 @@ import { Calendar, MapPin } from "lucide-react";
 
 export default function Events() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [now, setNow] = useState(Date.now());
+  const [now, setNow] = useState(0);
 
   const { featured, upcoming, past } = useMemo(() => {
     const classified = classifyEvents();

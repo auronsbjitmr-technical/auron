@@ -75,7 +75,7 @@ export const UPCOMING_EVENTS_DATA: UpcomingEvent[] = [
     "date": "Aug 08, 2026",
     "dateISO": "2026-08-08T14:30:00",
     "location": "S.B. Jain Institute of Technology, Management and Research, Nagpur",
-    "image": "/logo/auron.png",
+    "image": "/assets/prompt.jpg",
     "description": "Get detailed knowledge on how to write a prompt and apply it with a practical approach. Certificate for all."
   },
   {

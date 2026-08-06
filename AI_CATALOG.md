@@ -25,6 +25,8 @@ auron/
 ├── app/                              # Next.js App Router Root
 │   ├── achievements/                 # Hall of Fame and Testimonials Page
 │   │   └── page.tsx                  # Layout importing Achievements & Alumni components
+│   ├── certificates/                 # Certificate Portal Page
+│   │   └── page.tsx                  # Static route handling server-side Excel import parsing
 │   ├── committee/                    # Executive Committee Page
 │   │   └── page.tsx                  # Static route loading Committee Client component
 │   ├── contact/                      # Contact Us Page
@@ -45,6 +47,7 @@ auron/
 ├── components/                       # Modular UI Components
 │   ├── Achievements.tsx              # Renders national awards cards
 │   ├── Alumni.tsx                    # Graduate networks testimonials cards
+│   ├── CertificatesClient.tsx        # Client canvas rendering & custom dropdown interface
 │   ├── Committee.tsx                 # Leaders list with wing filtering and sparkly hover overlays
 │   ├── Contact.tsx                   # EmailJS integrated input form with floating labels
 │   ├── CustomCursor.tsx              # GSAP client mouse coordinator and magnet pulling listeners
@@ -410,3 +413,42 @@ This codebase is pre-configured for static pre-rendering on Vercel.
 2. Link the repository inside the Vercel Dashboard.
 3. Configure the custom EmailJS environment variables (if overriding defaults).
 4. Click **Deploy**. Vercel will run `npm run build` and distribute the prerendered HTML output across the Edge Network.
+
+---
+
+## 🏆 9. Certificate Engine & Portal Architecture
+
+The Certificate Portal implements a decoupled, reusable certificate generator and database system.
+
+### 9.1 Server-Side Excel Auto-Importer ([app/certificates/page.tsx](file:///c:/Project/Auron/Auron_Website/auron/app/certificates/page.tsx))
+
+To achieve a zero-maintenance workflow for new events, the route scanner automatically detects and parses Excel files to register attendees dynamically on startup/build:
+
+1. **Folder Scan**: Reads subdirectories inside `public/certificates/`.
+2. **Missing Database Detection**: If a folder has no `data.json` but contains a `.xlsx` spreadsheet, the importer is triggered automatically.
+3. **Excel Parser**: Uses `xlsx` (SheetJS) to read the spreadsheet.
+4. **Column Mapping**: Searches for headers matching Name and USN case-insensitively. Automatically maps attendee names, standardizes USN string lookups (uppercase, trimmed), and assigns the certificate type (defaulting to `"participation"`).
+5. **Event Registry**: Formats the folder name (e.g. `web-design` -> `Web Design`, with an override for `canva-event` -> `Ctrl+Create`) and writes `data.json` to disk in the static asset directory.
+
+### 9.2 Client-Side Rendering Engine ([components/CertificatesClient.tsx](file:///c:/Project/Auron/Auron_Website/auron/components/CertificatesClient.tsx))
+
+Processes certificate requests client-side using HTML5 Canvas drawing APIs:
+
+* **Dynamic Font Scaling**: Fits long participant names on the template page by measuring string lengths (`ctx.measureText`) and scaling down font sizes dynamically to stay inside `maxWidth`.
+* **Dynamic Font Face Loader**: Registers custom fonts (e.g., `GreatVibes`) by loading `.ttf`/`.otf` files dynamically in-browser when checked against active rendering configurations.
+* **Precise Vertical Underline Alignment**: Uses a custom `"textBaseline": "bottom"` config to position Title Case names cleanly above certificate lines (e.g., at Y=840 above the Y=866 underline for `Ctrl+Create`), preventing overlap while keeping the line visible.
+* **Export APIs**: Native browser support to download generated canvas frames as high-quality PNGs or print directly to custom-sized PDFs (`jspdf`).
+
+### 9.3 Custom Dropdown UI System
+
+Upgrades standard form selects with a modern, responsive, and fully accessible dropdown menu:
+
+* **Opaque Theme backdrops**: Solves background content visibility. Uses solid `#ffffff` in Light Mode and the solid dark surface color `#051329` (`var(--bg-secondary)`) in Dark Mode to ensure options are readable and underlying inputs are hidden.
+* **Layout Isolation**: Positioned absolutely (`position: absolute`) with drop shadows, a thin blue border, and a 250ms slide/fade scale animation to prevent layout shifts on trigger.
+* **Micro-interactions**: Incorporates an SVG chevron arrow that rotates 180 degrees smoothly on opening and closing.
+* **Keyboard Accessibility**:
+  - `Enter` / `Space` opens or selects options.
+  - `ArrowUp` / `ArrowDown` cycles options list.
+  - `Escape` closes the dropdown.
+  - **Scroll Alignment Hook**: Monitors key selections and adjusts container `.scrollTop` automatically so highlighted options stay visible in scroll views (max-height `260px`).
+* **Frontend Exclusion Filter**: Filters the active events list at the component entry (`visibleEvents = events.filter(...)`) to hide specific events (like `cyber-hunt`) from the frontend UI dropdown while maintaining their folders and configurations in the codebase.

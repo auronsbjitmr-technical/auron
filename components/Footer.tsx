@@ -66,6 +66,7 @@ export default function Footer() {
               <li><Link href="/committee" className="footer-link">Committee</Link></li>
               <li><Link href="/events" className="footer-link">Events</Link></li>
               <li><Link href="/timeline" className="footer-link">Timeline</Link></li>
+              <li><Link href="/certificates" className="footer-link">Certificates</Link></li>
               <li><Link href="/faqs" className="footer-link">FAQs</Link></li>
               <li><Link href="/contact" className="footer-link">Contact</Link></li>
             </ul>

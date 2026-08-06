@@ -56,6 +56,7 @@ export default function Navbar() {
     { label: "Vision", href: "/vision" },
     { label: "Committee", href: "/committee" },
     { label: "Events", href: "/events" },
+    { label: "Certificates", href: "/certificates" },
     { label: "Hall of Fame", href: "/hall-of-fame" },
     { label: "Timeline", href: "/timeline" },
     { label: "Contact", href: "/contact" },

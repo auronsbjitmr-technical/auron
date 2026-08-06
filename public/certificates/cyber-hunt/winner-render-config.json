@@ -1,0 +1,11 @@
+{
+  "fontFamily": "GreatVibes",
+  "fontSize": 110,
+  "fontWeight": "normal",
+  "textColor": "#8B5A2B",
+  "textAlign": "center",
+  "textX": 1000,
+  "textY": 750,
+  "maxWidth": 1400,
+  "shadow": false
+}

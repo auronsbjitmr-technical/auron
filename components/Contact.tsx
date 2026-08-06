@@ -46,7 +46,7 @@ export default function Contact() {
           time: new Date().toLocaleString(),
           message: message,
           reply_to: email,
-          to_email: "auron.sbjitmr@gmail.com",
+          to_email: "auron@sbjit.edu.in",
         },
         PUBLIC_KEY
       );
@@ -58,12 +58,12 @@ export default function Contact() {
       console.error("EmailJS Submission Error:", err);
       const errObj = err as { text?: string; status?: number; message?: string };
       const detail = errObj.text || errObj.message || (typeof err === "string" ? err : "");
-      
-      setStatus({ 
-        type: "error", 
-        text: detail 
-          ? `EmailJS Error (${errObj.status || "API"}): ${detail}. Please check your .env.local EmailJS credentials.` 
-          : "Failed to send message via EmailJS. Please try again or use direct email." 
+
+      setStatus({
+        type: "error",
+        text: detail
+          ? `EmailJS Error (${errObj.status || "API"}): ${detail}. Please check your .env.local EmailJS credentials.`
+          : "Failed to send message via EmailJS. Please try again or use direct email."
       });
     } finally {
       setLoading(false);
@@ -83,16 +83,16 @@ export default function Contact() {
           <div className="card-border-glow" />
 
           <form ref={formRef} onSubmit={handleSubmit} className="contact-form" id="contact-form">
-            <input type="hidden" name="to_email" value="auron.sbjitmr@gmail.com" />
+            <input type="hidden" name="to_email" value="auron@sbjit.edu.in" />
 
             <div className="form-group">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 name="from_name"
-                id="contact-name" 
-                className="form-input" 
-                placeholder=" " 
-                required 
+                id="contact-name"
+                className="form-input"
+                placeholder=" "
+                required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -101,13 +101,13 @@ export default function Contact() {
             </div>
 
             <div className="form-group">
-              <input 
-                type="email" 
+              <input
+                type="email"
                 name="from_email"
-                id="contact-email" 
-                className="form-input" 
-                placeholder=" " 
-                required 
+                id="contact-email"
+                className="form-input"
+                placeholder=" "
+                required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -116,12 +116,12 @@ export default function Contact() {
             </div>
 
             <div className="form-group">
-              <textarea 
+              <textarea
                 name="message"
-                id="contact-message" 
-                className="form-textarea" 
-                placeholder=" " 
-                required 
+                id="contact-message"
+                className="form-textarea"
+                placeholder=" "
+                required
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />
@@ -129,8 +129,8 @@ export default function Contact() {
               <div className="form-line"></div>
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className={`cta-button submit-btn magnetic-element ${loading ? "loading" : ""}`}
               id="contact-submit"
               disabled={loading}
@@ -148,11 +148,13 @@ export default function Contact() {
 
           <div style={{ textAlign: "center", marginTop: "20px", fontSize: "0.85rem", color: "var(--text-muted)" }}>
             Or email us directly at{" "}
-            <a 
-              href="mailto:auron.sbjitmr@gmail.com" 
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=auron@sbjit.edu.in"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{ color: "var(--color-gold)", textDecoration: "underline" }}
             >
-              auron.sbjitmr@gmail.com
+              auron@sbjit.edu.in
             </a>
           </div>
         </div>

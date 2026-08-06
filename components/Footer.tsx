@@ -51,7 +51,7 @@ export default function Footer() {
                 </svg>
               </a>
 
-              <a href="mailto:auron.sbjitmr@gmail.com" className="social-icon-btn magnetic-element" aria-label="Email">
+              <a href="mailto:auron@sbjit.edu.in" className="social-icon-btn magnetic-element" aria-label="Email">
                 <Mail size={14} />
               </a>
             </div>
@@ -83,7 +83,7 @@ export default function Footer() {
 
               <div className="footer-info-item">
                 <Mail size={13} />
-                <span>auron.sbjitmr@gmail.com</span>
+                <span>auron@sbjit.edu.in</span>
               </div>
               <div className="footer-info-item">
                 <Clock size={13} />

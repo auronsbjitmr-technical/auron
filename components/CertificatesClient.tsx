@@ -223,6 +223,7 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
 
   // Magnetic Snapping Effect for Buttons
   useEffect(() => {
+    if (window.matchMedia("(max-width: 768px)").matches) return;
     const magneticElements = document.querySelectorAll(".magnetic-element");
     const cleanups: (() => void)[] = [];
 

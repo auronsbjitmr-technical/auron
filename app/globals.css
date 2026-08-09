@@ -431,6 +431,7 @@ html {
   border: 1px solid transparent;
   background: radial-gradient(300px circle at var(--mouse-x, 0) var(--mouse-y, 0), var(--color-gold), transparent 60%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;

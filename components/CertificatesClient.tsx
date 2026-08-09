@@ -788,7 +788,7 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
             {/* Submit Button */}
             <button
               type="submit"
-              className={`cta-button submit-btn magnetic-element ${loading ? "loading" : ""}`}
+              className={`cta-button submit-btn ${loading ? "loading" : ""}`}
               disabled={loading}
               style={{ width: "100%", marginTop: "10px" }}
             >

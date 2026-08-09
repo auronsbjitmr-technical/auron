@@ -180,9 +180,9 @@ export default function Hero() {
           <Image src="/logo/auron.png" alt="AURON Logo" width={150} height={150} priority />
         </div>
         <span className="hero-subtitle reveal-element delay-100">Technical & Non-Technical Wings</span>
-        <h1 className="hero-title reveal-element delay-200">
+        <h2 className="hero-title reveal-element delay-200">
           AURON <span className="text-gold-gradient">FORUM</span>
-        </h1>
+        </h2>
         <p className="hero-desc reveal-element delay-300">
           Empowering student engineering minds, developers, managers, and creative operators through technical hackathons, coding contests, management challenges, and design sprints.
         </p>

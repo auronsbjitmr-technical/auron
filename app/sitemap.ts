@@ -1,25 +1,11 @@
-import { MetadataRoute } from 'next';
-
 export const dynamic = "force-static";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://auronforum.com';
-  const routes = [
-    '',
-    '/achievements',
-    '/committee',
-    '/contact',
-    '/events',
-    '/faqs',
-    '/gallery',
-    '/timeline',
-    '/vision',
+export default function sitemap() {
+  return [
+    { url: "https://auron-iota.vercel.app/" },
+    { url: "https://auron-iota.vercel.app/events" },
+    { url: "https://auron-iota.vercel.app/committee" },
+    { url: "https://auron-iota.vercel.app/gallery" },
+    { url: "https://auron-iota.vercel.app/contact" },
   ];
-
-  return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: route === '' || route === '/events' ? 'daily' : 'weekly',
-    priority: route === '' ? 1.0 : 0.8,
-  }));
 }

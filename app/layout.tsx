@@ -32,22 +32,17 @@ const plusJakartaSans = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://auronforum.com"),
-  title: {
-    default: "AURON Forum | Technical & Non-Technical Executive Committee, Events & Workshops",
-    template: "%s | AURON Forum",
-  },
-  description: "Official website of AURON Forum at S.B. Jain Institute of Technology, Management and Research, Nagpur. Discover our vision, committee, hackathons, workshops, and student opportunities.",
+  metadataBase: new URL("https://auron-iota.vercel.app"),
+  title: "AURON Forum | SBJITMR Technical Community Nagpur",
+  description: "AURON Forum is the official AI-ML and IT technical community at SBJITMR Nagpur. Explore events, hackathons, certificates, and student innovation.",
   keywords: [
-    "Auron Forum",
-    "SBJITMR",
-    "Department Forum Nagpur",
-    "Technical Wing",
-    "Non-Technical Wing",
-    "Campus Hackathons",
-    "Student Engineering Forum",
-    "Computer Science Workshops",
-    "Project Mentorship",
+    "AURON",
+    "AURON Forum",
+    "Aaron Forum",
+    "Auron SBJIT",
+    "SBJITMR tech community",
+    "Nagpur engineering club",
+    "AI ML student forum"
   ],
   authors: [{ name: "AURON Forum Committee" }],
   creator: "AURON Technical Forum",
@@ -63,12 +58,12 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://auron-iota.vercel.app",
   },
   openGraph: {
-    title: "AURON Forum | Technical & Non-Technical Community",
-    description: "Official website of AURON Forum at S.B. Jain Institute of Technology. Explore our events, committee members, achievements, and technical workshops.",
-    url: "https://auronforum.com",
+    title: "AURON Forum",
+    description: "Official technical forum of SBJITMR Nagpur",
+    url: "https://auron-iota.vercel.app",
     siteName: "AURON Forum",
     images: [
       {
@@ -83,29 +78,22 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AURON Forum | Technical & Non-Technical Community",
-    description: "Official website of AURON Forum at S.B. Jain Institute of Technology. Explore our events, committee members, achievements, and technical workshops.",
+    title: "AURON Forum",
+    description: "Official technical forum of SBJITMR Nagpur",
     images: ["/logo/auron.png"],
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  name: "AURON Technical Forum",
-  url: "https://auronforum.com",
-  logo: "https://auronforum.com/logo/auron.png",
-  description: "Official student technical and non-technical forum of S.B. Jain Institute of Technology, Management and Research, Nagpur.",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Nagpur",
-    addressRegion: "Maharashtra",
-    addressCountry: "India",
-  },
-  sameAs: [
-    "https://linkedin.com",
-    "https://github.com",
-  ],
+  "@type": "Organization",
+  "name": "AURON Forum",
+  "alternateName": "Aaron Forum",
+  "url": "https://auron-iota.vercel.app",
+  "sameAs": [
+    "https://instagram.com/",
+    "https://linkedin.com/"
+  ]
 };
 
 export default function RootLayout({
@@ -116,6 +104,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cinzel.variable} ${plusJakartaSans.variable}`} suppressHydrationWarning>
       <head>
+        <link rel="canonical" href="https://auron-iota.vercel.app" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){var t=localStorage.getItem('theme');if(t!=='dark'){document.documentElement.setAttribute('data-theme','light');}})();`,

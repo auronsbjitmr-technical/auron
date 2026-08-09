@@ -82,6 +82,9 @@ export const metadata: Metadata = {
     description: "Official technical forum of SBJITMR Nagpur",
     images: ["/logo/auron.png"],
   },
+  verification: {
+    google: "C1OkZoicnix0pXK9hUnVqBsASQL2EZaPFDJ2T0HHO7I",
+  },
 };
 
 const jsonLd = {

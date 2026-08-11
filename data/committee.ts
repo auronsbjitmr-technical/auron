@@ -34,14 +34,14 @@ export const COMMITTEE_DATA: CommitteeMember[] = [
     "photo": "/photo/sweta.jpeg"
   },
   {
-    "id": "falguni-ma'am",
-    "name": "Prof. Falguni Kalambe",
+    "id": "Ravi-raseakr",
+    "name": "Prof. Ravindra Rasekar",
     "role": "Non-Technical Advisor",
-    "tier": "secondary",
+    "tier": "tertiary",
     "wing": "advisor",
     "department": "Department of CSE(AIML) & IT",
-    "linkedin": "linkedin.com/in/falguni-kalambe-970780276",
-    "photo": "/photo/falguni.jpeg",
+    "linkedin": "linkedin.com/in/ravi-rasekar-4812871a1",
+    "photo": "/photo/ravi.jpeg"
   },
   {
     "id": "rahul-sir",
@@ -54,14 +54,14 @@ export const COMMITTEE_DATA: CommitteeMember[] = [
     "photo": "/photo/rahul.jpeg"
   },
   {
-    "id": "Ravi-raseakr",
-    "name": "Prof. Ravindra Rasekar",
+    "id": "falguni-ma'am",
+    "name": "Prof. Falguni Kalambe",
     "role": "Non-Technical Advisor",
-    "tier": "tertiary",
+    "tier": "secondary",
     "wing": "advisor",
     "department": "Department of CSE(AIML) & IT",
-    "linkedin": "linkedin.com/in/ravi-rasekar-4812871a1",
-    "photo": "/photo/ravi.jpeg"
+    "linkedin": "linkedin.com/in/falguni-kalambe-970780276",
+    "photo": "/photo/falguni.jpeg",
   },
 
   /* ---- TECHNICAL EXECUTIVE ---- */
@@ -87,8 +87,8 @@ export const COMMITTEE_DATA: CommitteeMember[] = [
     "photo": "/photo/naryani.jpeg"
   },
   {
-    "id": "arya-kewatkar",
-    "name": "Arya Kewatkar",
+    "id": "arya-rewatkar",
+    "name": "Arya Rewatkar",
     "role": "Secretary",
     "tier": "secondary",
     "wing": "technical",
@@ -117,7 +117,7 @@ export const COMMITTEE_DATA: CommitteeMember[] = [
     "photo": "/photo/yash.jpeg"
   },
   {
-    "id": "Mikhil-burbre",
+    "id": "Mikhil-burbure",
     "name": "Mikhil Burbre",
     "role": "Media Head",
     "tier": "tertiary",
@@ -180,8 +180,8 @@ export const COMMITTEE_DATA: CommitteeMember[] = [
     "photo": "/photo/shriya.jpeg"
   },
   {
-    "id": "abhijit",
-    "name": "Abhijit",
+    "id": "abhijit-pande",
+    "name": "Abhijit Pande",
     "role": "Event Co-Head",
     "tier": "tertiary",
     "wing": "technical",
@@ -190,8 +190,8 @@ export const COMMITTEE_DATA: CommitteeMember[] = [
     "photo": "/photo/abhi.png"
   },
   {
-    "id": "harshit",
-    "name": "Harshit",
+    "id": "harshit-vaidya",
+    "name": "Harshit Vaidya",
     "role": "Technical Co-Head",
     "tier": "tertiary",
     "wing": "technical",

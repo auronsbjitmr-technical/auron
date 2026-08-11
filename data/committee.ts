@@ -118,7 +118,7 @@ export const COMMITTEE_DATA: CommitteeMember[] = [
   },
   {
     "id": "Mikhil-burbure",
-    "name": "Mikhil Burbre",
+    "name": "Mikhil Burbure",
     "role": "Media Head",
     "tier": "tertiary",
     "wing": "technical",
@@ -197,6 +197,7 @@ export const COMMITTEE_DATA: CommitteeMember[] = [
     "wing": "technical",
     "department": "Dev & Projects",
     "linkedin": "https://www.linkedin.com/in/harshit-vaidya-6a3104384?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    "github": "https://github.com/vaidyaharshit",
     "photo": "/photo/harshit.png"
   },
 

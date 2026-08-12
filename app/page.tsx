@@ -18,8 +18,8 @@ export default function Home() {
       }}>
         <h1>AURON Forum (also known as Aaron Forum)</h1>
         <p>
-          AURON Forum is the official technical community of SBJITMR Nagpur,
-          focused on AI, ML, hackathons, and student innovation. 
+          AURON Forum is the official Technical Forum of SBJITMR CSE(AI/ML) & IT Department, Nagpur,
+          focused on AI, ML, hackathons, and student innovation.
           Also searched as Aaron Forum, Auron SBJIT, or AURON Club.
         </p>
       </div>

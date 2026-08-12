@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import GlobalModals from "@/components/GlobalModals";
 import GlobalScrollManager from "@/components/GlobalScrollManager";
 import InitialLoaderWrapper from "@/components/InitialLoaderWrapper";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const cinzel = localFont({
   src: [
@@ -133,6 +135,8 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

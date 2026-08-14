@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Events from "@/components/Events";
+import { getEventsSchema } from "@/utils/schema";
+import { UPCOMING_EVENTS_DATA } from "@/data/events";
 
 export const metadata: Metadata = {
   title: "Forum Events",
@@ -7,5 +9,14 @@ export const metadata: Metadata = {
 };
 
 export default function EventsPage() {
-  return <Events />;
+  const schema = getEventsSchema(UPCOMING_EVENTS_DATA);
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <Events />
+    </>
+  );
 }

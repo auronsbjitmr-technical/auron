@@ -9,6 +9,7 @@ import GlobalScrollManager from "@/components/GlobalScrollManager";
 import InitialLoaderWrapper from "@/components/InitialLoaderWrapper";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { getGlobalSchema } from "@/utils/schema";
 
 const cinzel = localFont({
   src: [
@@ -89,17 +90,7 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "AURON Forum",
-  "alternateName": "Aaron Forum",
-  "url": "https://auron-iota.vercel.app",
-  "sameAs": [
-    "https://instagram.com/",
-    "https://linkedin.com/"
-  ]
-};
+const globalSchema = getGlobalSchema();
 
 export default function RootLayout({
   children,
@@ -117,7 +108,7 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(globalSchema) }}
         />
       </head>
       <body className="antialiased">

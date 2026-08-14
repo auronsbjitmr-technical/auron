@@ -1,9 +1,21 @@
 import Hero from "@/components/Hero";
 import Sponsors from "@/components/Sponsors";
+import { getWebPageSchema } from "@/utils/schema";
 
 export default function Home() {
+  const schema = getWebPageSchema(
+    "https://auron-iota.vercel.app/",
+    "AURON Forum | SBJITMR Technical Community Nagpur",
+    "AURON Forum is the official AI-ML and IT technical community at SBJITMR Nagpur. Explore events, hackathons, certificates, and student innovation.",
+    ""
+  );
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       {/* Visually hidden SEO Heading & Description */}
       <div style={{
         position: "absolute",

@@ -20,7 +20,7 @@ export const COMMITTEE_DATA: CommitteeMember[] = [
     "tier": "primary",
     "wing": "advisor",
     "department": "Department of CSE(AIML) & IT",
-    "linkedin": "linkedin.com/in/dr-animesh-tayal-5ab477139",
+    "linkedin": "https://www.linkedin.com/in/dr-animesh-tayal-5ab477139",
     "photo": "/photo/animesh.jpeg"
   },
   {
@@ -40,7 +40,7 @@ export const COMMITTEE_DATA: CommitteeMember[] = [
     "tier": "tertiary",
     "wing": "advisor",
     "department": "Department of CSE(AIML) & IT",
-    "linkedin": "linkedin.com/in/ravi-rasekar-4812871a1",
+    "linkedin": "https://www.linkedin.com/in/ravi-rasekar-4812871a1",
     "photo": "/photo/ravi.jpeg"
   },
   {
@@ -60,7 +60,7 @@ export const COMMITTEE_DATA: CommitteeMember[] = [
     "tier": "secondary",
     "wing": "advisor",
     "department": "Department of CSE(AIML) & IT",
-    "linkedin": "linkedin.com/in/falguni-kalambe-970780276",
+    "linkedin": "https://www.linkedin.com/in/falguni-kalambe-970780276",
     "photo": "/photo/falguni.jpeg",
   },
 

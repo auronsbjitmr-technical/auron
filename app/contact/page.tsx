@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactPageClient from "@/components/ContactPageClient";
+import { getContactSchema } from "@/utils/schema";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -7,5 +8,14 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactPageClient />;
+  const schema = getContactSchema();
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <ContactPageClient />
+    </>
+  );
 }

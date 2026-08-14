@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Committee from "@/components/Committee";
+import { getCommitteeSchema } from "@/utils/schema";
+import { COMMITTEE_DATA } from "@/data/committee";
 
 export const metadata: Metadata = {
   title: "Executive Committee",
@@ -7,5 +9,14 @@ export const metadata: Metadata = {
 };
 
 export default function CommitteePage() {
-  return <Committee />;
+  const schema = getCommitteeSchema(COMMITTEE_DATA);
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <Committee />
+    </>
+  );
 }

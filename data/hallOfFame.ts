@@ -13,6 +13,5 @@ export const HALL_OF_FAME_PHOTOS: HallOfFamePhoto[] = [
   { id: "6", src: "/hall_of_fame/ff_4.jpg", alt: "Flash Mob 4" },
   { id: "7", src: "/hall_of_fame/ff_5.jpg", alt: "Flash Mob 5" },
   { id: "8", src: "/hall_of_fame/fi_1.jpg", alt: "Forum Installation 1" },
-  { id: "9", src: "/hall_of_fame/fi_3 (1).jpg", alt: "Forum Installation 2" },
-  { id: "10", src: "/hall_of_fame/fi_3 (2).jpg", alt: "Forum Installation 3" },
+  { id: "9", src: "/hall_of_fame/fi_3 (1).jpg", alt: "Forum Installation 2" }
 ];

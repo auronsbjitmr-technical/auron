@@ -147,7 +147,11 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
 
     const initParticles = () => {
       particlesArray = [];
-      const n = Math.min(Math.max(Math.floor((canvas.width * canvas.height) / 12000), 30), 100);
+      const isMobile = window.innerWidth <= 768;
+      const divisor = isMobile ? 45000 : 12000;
+      const minP = isMobile ? 8 : 30;
+      const maxP = isMobile ? 20 : 100;
+      const n = Math.min(Math.max(Math.floor((canvas.width * canvas.height) / divisor), minP), maxP);
       const isLight = document.documentElement.getAttribute("data-theme") === "light";
       const color = isLight ? "rgba(13, 71, 161, 0.16)" : "rgba(59, 156, 255, 0.22)";
 
@@ -188,7 +192,7 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
       }
     };
 
-    let frameId: number;
+    let frameId: number | null = null;
     let frameCount = 0;
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -201,9 +205,32 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
       frameId = requestAnimationFrame(animate);
     };
 
+    const startAnimation = () => {
+      if (!frameId) {
+        frameId = requestAnimationFrame(animate);
+      }
+    };
+
+    const stopAnimation = () => {
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+        frameId = null;
+      }
+    };
+
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          startAnimation();
+        } else {
+          stopAnimation();
+        }
+      });
+    }, { threshold: 0.05 });
+
     window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
-    animate();
+    intersectionObserver.observe(canvas);
 
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((m) => {
@@ -214,7 +241,8 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
-      cancelAnimationFrame(frameId);
+      stopAnimation();
+      intersectionObserver.disconnect();
       observer.disconnect();
       if (heroSection) {
         heroSection.removeEventListener("mousemove", handleMouseMove);
@@ -837,6 +865,7 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
               style={{
                 width: "100%",
                 height: "auto",
+                aspectRatio: `${successData.naturalWidth} / ${successData.naturalHeight}`,
                 borderRadius: "var(--radius-sm)",
                 border: "1px solid var(--border-color)",
                 boxShadow: "var(--shadow-md)",

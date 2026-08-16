@@ -8,6 +8,9 @@ export default function CustomCursor() {
   const followerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const isMobileOrTouch = window.innerWidth <= 1024 || window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in window;
+    if (isMobileOrTouch) return;
+
     const cursor = cursorRef.current;
     const follower = followerRef.current;
     if (!cursor || !follower) return;

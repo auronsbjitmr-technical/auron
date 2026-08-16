@@ -103,7 +103,16 @@ export default function RootLayout({
         <link rel="canonical" href="https://auron-iota.vercel.app" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem('theme');if(t!=='dark'){document.documentElement.setAttribute('data-theme','light');}})();`,
+            __html: `(function(){
+              var t=localStorage.getItem('theme');
+              if(t!=='dark'){document.documentElement.setAttribute('data-theme','light');}
+              
+              var hasLoaded = sessionStorage.getItem('auron_session_loaded');
+              if (!hasLoaded) {
+                document.documentElement.classList.add('global-loading');
+              }
+              document.documentElement.classList.add('js-enabled');
+            })();`,
           }}
         />
         <script

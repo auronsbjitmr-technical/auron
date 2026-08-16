@@ -4,22 +4,24 @@ import { useEffect, useState } from "react";
 import Loader from "./Loader";
 
 export default function InitialLoaderWrapper() {
-  const [showLoader, setShowLoader] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
+    setMounted(true);
     const hasLoaded = sessionStorage.getItem("auron_session_loaded");
-    if (!hasLoaded) {
-      const timer = setTimeout(() => setShowLoader(true), 0);
-      return () => clearTimeout(timer);
+    if (hasLoaded) {
+      setShowLoader(false);
     }
   }, []);
 
   const handleComplete = () => {
     sessionStorage.setItem("auron_session_loaded", "true");
     setShowLoader(false);
+    document.documentElement.classList.remove("global-loading");
   };
 
-  if (!showLoader) return null;
+  if (mounted && !showLoader) return null;
 
   return <Loader onComplete={handleComplete} />;
 }

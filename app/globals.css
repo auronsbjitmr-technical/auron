@@ -233,10 +233,14 @@ html {
   height: 100vh;
   background-color: var(--bg-primary);
   z-index: 10000;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   transition: opacity var(--transition-slow), visibility var(--transition-slow);
+}
+
+html.global-loading .loader-wrapper {
+  display: flex;
 }
 
 .loader-content {
@@ -3606,11 +3610,9 @@ html {
   }
 }
 
-/* --- Scroll Entrance Reveals --- */
-.reveal-element {
+html.js-enabled .reveal-element {
   opacity: 0;
-  transform: translateY(35px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
 }
 
 .reveal-element.revealed {
@@ -3904,6 +3906,7 @@ textarea {
   overflow: hidden;
   cursor: zoom-in;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
 }
 
 .hall-of-fame-item:hover {
@@ -3917,6 +3920,7 @@ textarea {
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
+  will-change: transform;
 }
 
 .hall-of-fame-item:hover .hall-of-fame-img {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Flag, Lightbulb, Code, Trophy } from "lucide-react";
@@ -45,12 +46,14 @@ export default function Timeline() {
   const [timelineData, setTimelineData] = useState(() => {
     const { past, upcoming, featured } = classifyEvents();
     const autoPastEvents = PAST_EVENTS_DATA.map((e) => ({
+      id: e.id,
       date: e.date,
       heading: e.title,
       text: e.description,
       icon: getEventIcon(e.tag || e.category),
     }));
     const classifiedUpcoming = [...past, ...(featured ? [featured] : []), ...upcoming].map((e) => ({
+      id: e.id,
       date: e.date,
       heading: e.title,
       text: e.description,
@@ -65,12 +68,14 @@ export default function Timeline() {
     const interval = setInterval(() => {
       const { past, upcoming, featured } = classifyEvents();
       const autoPastEvents = PAST_EVENTS_DATA.map((e) => ({
+        id: e.id,
         date: e.date,
         heading: e.title,
         text: e.description,
         icon: getEventIcon(e.tag || e.category),
       }));
       const classifiedUpcoming = [...past, ...(featured ? [featured] : []), ...upcoming].map((e) => ({
+        id: e.id,
         date: e.date,
         heading: e.title,
         text: e.description,
@@ -157,13 +162,17 @@ export default function Timeline() {
                   <div className="timeline-circle">
                     <Icon size={18} />
                   </div>
-                  <div className="timeline-box glass-card">
+                  <Link
+                    href={`/events#event-${item.id}`}
+                    className="timeline-box glass-card timeline-card-link"
+                    scroll={false}
+                  >
                     <div className="spotlight" />
                     <div className="card-border-glow" />
                     <span className="timeline-date">{item.date}</span>
                     <h4 className="timeline-heading">{item.heading}</h4>
                     <p className="timeline-text">{item.text}</p>
-                  </div>
+                  </Link>
                 </div>
               );
             })}

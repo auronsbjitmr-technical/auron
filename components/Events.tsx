@@ -68,6 +68,7 @@ export default function Events() {
   const renderEventCard = (event: UpcomingEvent, extraClass = "") => (
     <div
       key={event.id}
+      id={`event-${event.id}`}
       className={`event-card glass-card ${extraClass}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -116,7 +117,7 @@ export default function Events() {
 
         {/* Featured / Next Event with Countdown */}
         {featured && (
-          <div className="featured-event-container reveal-element">
+          <div className="featured-event-container reveal-element" id={`event-${featured.id}`}>
             <div className="featured-event-card glass-card">
               <div className="spotlight" />
               <div className="card-border-glow" />

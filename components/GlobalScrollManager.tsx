@@ -10,12 +10,25 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+function scrollToHash(lenis: Lenis) {
+  const hash = window.location.hash;
+  if (!hash) return;
+  const target = document.getElementById(hash.slice(1));
+  if (target) {
+    setTimeout(() => {
+      lenis.scrollTo(target, { offset: -90, duration: 1.2 });
+    }, 100);
+  }
+}
+
 export default function GlobalScrollManager() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Reset scroll to top on route change
-    window.scrollTo(0, 0);
+    const hash = window.location.hash;
+    if (!hash) {
+      window.scrollTo(0, 0);
+    }
 
     const lenis = new Lenis({
       duration: 0.8,
@@ -25,6 +38,10 @@ export default function GlobalScrollManager() {
 
     const win = window as unknown as { lenisInstance: Lenis | null };
     win.lenisInstance = lenis;
+
+    if (hash) {
+      scrollToHash(lenis);
+    }
 
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -82,6 +99,17 @@ export default function GlobalScrollManager() {
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, [pathname]);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const lenis = (window as unknown as { lenisInstance: Lenis | null }).lenisInstance;
+      if (lenis) {
+        scrollToHash(lenis);
+      }
+    };
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   return null;
 }

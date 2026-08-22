@@ -4,6 +4,7 @@
 
 import { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { classifyEvents, type UpcomingEvent } from "@/data/events";
 import { Calendar, MapPin } from "lucide-react";
 
@@ -49,7 +50,7 @@ export default function Events() {
     return () => clearInterval(interval);
   }, [featured]);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement | HTMLAnchorElement>) => {
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -61,15 +62,16 @@ export default function Events() {
     card.style.setProperty("--mouse-y", `${y}px`);
   };
 
-  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement | HTMLAnchorElement>) => {
     e.currentTarget.style.transform = "rotateX(0deg) rotateY(0deg) translateY(0px)";
   };
 
   const renderEventCard = (event: UpcomingEvent, extraClass = "") => (
-    <div
+    <Link
       key={event.id}
-      id={`event-${event.id}`}
-      className={`event-card glass-card ${extraClass}`}
+      href={`/events/${event.slug}`}
+      className={`event-card glass-card event-card-link ${extraClass}`}
+      aria-label={`View details for ${event.title}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -104,7 +106,7 @@ export default function Events() {
         <h5 className="event-card-title">{event.title}</h5>
         <p className="event-card-desc">{event.description}</p>
       </div>
-    </div>
+    </Link>
   );
 
   return (
@@ -118,7 +120,11 @@ export default function Events() {
         {/* Featured / Next Event with Countdown */}
         {featured && (
           <div className="featured-event-container reveal-element" id={`event-${featured.id}`}>
-            <div className="featured-event-card glass-card">
+            <Link
+              href={`/events/${featured.slug}`}
+              className="featured-event-card glass-card featured-event-link"
+              aria-label={`View details for ${featured.title}`}
+            >
               <div className="spotlight" />
               <div className="card-border-glow" />
 
@@ -173,7 +179,7 @@ export default function Events() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         )}
 

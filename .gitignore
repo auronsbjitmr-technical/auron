@@ -52,3 +52,6 @@ Thumbs.db
 # editor configurations
 .vscode/settings.json
 
+# code scanner
+.codesight/
+

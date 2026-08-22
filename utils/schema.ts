@@ -2,6 +2,7 @@
 // Ensures stable @ids, correct relationships, and maps properties programmatically.
 
 import { UpcomingEvent } from "@/data/events";
+import { type EventDetail } from "@/data/eventDetails";
 import { FaqItem } from "@/data/faqs";
 import { CommitteeMember } from "@/data/committee";
 
@@ -169,6 +170,40 @@ export function getEventsSchema(eventsData: UpcomingEvent[]) {
         };
       })
     }
+  };
+}
+
+export function getEventDetailSchema(event: EventDetail) {
+  const wing = event.wing ?? "hybrid";
+  const attendanceMode = wing === "hybrid"
+    ? "https://schema.org/MixedEventAttendanceMode"
+    : "https://schema.org/OfflineEventAttendanceMode";
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": `https://auron-iota.vercel.app/events/${event.slug}#event`,
+    "name": event.title,
+    "description": event.about || event.description,
+    "startDate": event.dateISO ? event.dateISO.split("T")[0] : event.dateISO,
+    "eventAttendanceMode": attendanceMode,
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": event.venue || "S.B. Jain Institute of Technology, Management and Research",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nagpur",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "IN"
+      }
+    },
+    "image": event.image ? {
+      "@type": "ImageObject",
+      "url": toAbsoluteUrl(event.image)
+    } : undefined,
+    "organizer": { "@id": "https://auron-iota.vercel.app/#organization" },
+    "isAccessibleForFree": true
   };
 }
 

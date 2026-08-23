@@ -7,7 +7,10 @@ export default function VisionMission() {
           <h2 className="section-title">Vision & Mission</h2>
         </div>
 
-        <div className="vm-editorial">
+        <div className="vm-wrapper glass-card reveal-element delay-100">
+          <div className="spotlight" />
+          <div className="card-border-glow" />
+          <div className="vm-editorial">
           {/* Vision */}
           <div className="vm-block reveal-element delay-100">
             <div className="vm-block-label">
@@ -63,6 +66,7 @@ export default function VisionMission() {
                 Aligning department objectives directly with technology pioneers, business leaders, and alumni.
               </li>
             </ul>
+          </div>
           </div>
         </div>
       </div>

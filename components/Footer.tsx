@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Clock, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -84,6 +84,11 @@ export default function Footer() {
               <div className="footer-info-item">
                 <Mail size={13} />
                 <span>auron@sbjit.edu.in</span>
+              </div>
+
+              <div className="footer-info-item">
+                <Phone size={13} />
+                <a href="tel:+917057533890" className="footer-info-link">+91 70575 33890</a>
               </div>
               <div className="footer-info-item">
                 <Clock size={13} />

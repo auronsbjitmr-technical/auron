@@ -118,27 +118,7 @@ export const eventDetails: EventDetail[] = [
       "Certificate for all participants",
     ],
   },
-  {
-    slug: "prompt-engineering",
-    title: "Prompt Engineering",
-    category: "WORKSHOP",
-    wing: "technical",
-    date: "Aug 08, 2026",
-    dateISO: "2026-08-08T14:30:00",
-    time: "2:30 PM",
-    venue: "S.B. Jain Institute of Technology, Management and Research, Nagpur",
-    image: "/assets/prompt.jpg",
-    description:
-      "Get detailed knowledge on how to write a prompt and apply it with a practical approach. Certificate for all.",
-    about:
-      "This workshop dives deep into the art and science of prompt engineering. Participants will learn how to craft effective prompts for AI language models, understand prompt structures, and apply techniques in real-world scenarios. A practical, hands-on approach ensures every attendee walks away with actionable skills. Certificates will be provided to all participants.",
-    registrationFee: "Free",
-    rules: [
-      "Certificate for all participants",
-      "Bring your own laptop with internet access",
-      "Hands-on practical session",
-    ],
-  },
+
   {
     slug: "techtank",
     title: "TechTank",
@@ -160,39 +140,10 @@ export const eventDetails: EventDetail[] = [
       "Be original — no plagiarized ideas",
     ],
   },
+
   {
-    slug: "coding-competition-ml",
-    title: "Coding Competition Information (ML)",
-    category: "SEMINAR",
-    wing: "technical",
-    date: "Aug 24, 2026",
-    dateISO: "2026-08-24T15:30:00",
-    time: "3:30 PM",
-    venue: "S.B. Jain Institute of Technology, Management and Research, Nagpur",
-    image: "/logo/auron.png",
-    description:
-      "Detailed information on all coding exams like ACM-ICPC, TCS CodeVita, AWS, and Google.",
-    about:
-      "This seminar provides a comprehensive overview of major coding competitions and exams, including ACM-ICPC, TCS CodeVita, AWS certifications, and Google coding challenges. Participants will learn about eligibility, preparation strategies, important dates, and how to approach each competition. This is an informational session aimed at helping students plan their competitive programming journey.",
-  },
-  {
-    slug: "coding-competition-it",
-    title: "Coding Competition Information (IT)",
-    category: "SEMINAR",
-    wing: "technical",
-    date: "Aug 25, 2026",
-    dateISO: "2026-08-25T15:30:00",
-    time: "3:30 PM",
-    venue: "S.B. Jain Institute of Technology, Management and Research, Nagpur",
-    image: "/logo/auron.png",
-    description:
-      "Detailed information on all coding exams like ACM-ICPC, TCS CodeVita, AWS, and Google.",
-    about:
-      "This seminar provides a comprehensive overview of major coding competitions and exams, including ACM-ICPC, TCS CodeVita, AWS certifications, and Google coding challenges. Participants will learn about eligibility, preparation strategies, important dates, and how to approach each competition. This is an informational session aimed at helping students plan their competitive programming journey.",
-  },
-  {
-    slug: "intradept-hackathon",
-    title: "IntraDept Hackathon",
+    slug: "Hacksprint",
+    title: "HackSprint",
     category: "HACKATHON",
     wing: "technical",
     date: "Aug 29, 2026",

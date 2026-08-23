@@ -1,12 +1,73 @@
 "use client";
 
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, MapPin, Clock, Users, IndianRupee, ArrowLeft, UserCheck, AlertCircle, ExternalLink, Phone, Mail, Info } from "lucide-react";
+import {
+  Calendar,
+  MapPin,
+  Clock,
+  Users,
+  IndianRupee,
+  ArrowLeft,
+  UserCheck,
+  AlertCircle,
+  ExternalLink,
+  Phone,
+  Mail,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { type EventDetail } from "@/data/eventDetails";
+import { HALL_OF_FAME_PHOTOS } from "@/data/hallOfFame";
 
 export default function EventDetails({ event }: { event: EventDetail }) {
   const wing = event.wing ?? "hybrid";
+
+  const eventPhotos = useMemo(
+    () => HALL_OF_FAME_PHOTOS.filter((photo) => photo.eventId === event.slug),
+    [event.slug]
+  );
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(4);
+
+  useEffect(() => {
+    const updateVisibleCount = () => {
+      const width = window.innerWidth;
+      setVisibleCount(width <= 576 ? 1 : width <= 992 ? 2 : 4);
+    };
+    updateVisibleCount();
+    window.addEventListener("resize", updateVisibleCount);
+    return () => window.removeEventListener("resize", updateVisibleCount);
+  }, []);
+
+  const totalPages = Math.max(1, Math.ceil(eventPhotos.length / visibleCount));
+  const currentPage = Math.min(
+    Math.floor(activeIndex / visibleCount),
+    totalPages - 1
+  );
+  const hasMultiplePages = totalPages > 1;
+  const isCentered = eventPhotos.length < visibleCount;
+
+  const goToPage = (page: number) =>
+    setActiveIndex(
+      Math.min(page * visibleCount, Math.max(0, eventPhotos.length - 1))
+    );
+  const prevPage = () =>
+    goToPage((currentPage - 1 + totalPages) % totalPages);
+  const nextPage = () => goToPage((currentPage + 1) % totalPages);
+
+  const openLightbox = (index: number) => {
+    if (!eventPhotos[index]) return;
+    window.dispatchEvent(
+      new CustomEvent("open-lightbox", {
+        detail: {
+          index,
+          images: eventPhotos.map((p) => ({ src: p.src, title: p.alt })),
+        },
+      })
+    );
+  };
 
   return (
     <section className="section-padding event-detail-section">
@@ -91,6 +152,78 @@ export default function EventDetails({ event }: { event: EventDetail }) {
             <p className="event-detail-about-text">
               {event.about || event.description}
             </p>
+          </div>
+        )}
+
+        {/* Event Photo Gallery */}
+        {eventPhotos.length > 0 && (
+          <div className="event-detail-card glass-card">
+            <div className="spotlight" />
+            <div className="card-border-glow" />
+            <h2 className="event-detail-section-title">Event Moments</h2>
+            <div className="event-gallery">
+              <div className="event-gallery-viewport">
+                {hasMultiplePages && (
+                  <>
+                    <button
+                      type="button"
+                      className="event-gallery-nav prev"
+                      onClick={prevPage}
+                      aria-label="Previous photos"
+                    >
+                      <ChevronLeft size={20} />
+                    </button>
+                    <button
+                      type="button"
+                      className="event-gallery-nav next"
+                      onClick={nextPage}
+                      aria-label="Next photos"
+                    >
+                      <ChevronRight size={20} />
+                    </button>
+                  </>
+                )}
+                {hasMultiplePages && (
+                  <span className="event-gallery-counter">
+                    {currentPage + 1} / {totalPages}
+                  </span>
+                )}
+                <div
+                  className={`event-gallery-track${isCentered ? " centered" : ""}`}
+                  style={{ transform: `translateX(-${currentPage * 100}%)` }}
+                >
+                  {eventPhotos.map((photo, idx) => (
+                    <div
+                      key={photo.id}
+                      className="event-gallery-slide"
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`Open ${photo.alt} in fullscreen`}
+                      onClick={() => openLightbox(idx)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          openLightbox(idx);
+                        }
+                      }}
+                    >
+                      <div className="event-gallery-frame">
+                        <Image
+                          src={photo.src}
+                          alt={photo.alt}
+                          fill
+                          className="object-cover event-gallery-img"
+                          sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 25vw"
+                        />
+                        <span className="event-gallery-caption">
+                          {photo.alt}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         )}
 

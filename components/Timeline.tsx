@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Flag, Lightbulb, Code, Trophy } from "lucide-react";
+import { Flag, Lightbulb, Code, Trophy, ArrowRight } from "lucide-react";
 
 import { PAST_EVENTS_DATA, classifyEvents } from "@/data/events";
 
@@ -162,17 +162,21 @@ export default function Timeline() {
                   <div className="timeline-circle">
                     <Icon size={18} />
                   </div>
-                  <Link
-                    href={`/events#event-${item.id}`}
-                    className="timeline-box glass-card timeline-card-link"
-                    scroll={false}
-                  >
+                  <div className="timeline-box glass-card">
                     <div className="spotlight" />
                     <div className="card-border-glow" />
                     <span className="timeline-date">{item.date}</span>
                     <h4 className="timeline-heading">{item.heading}</h4>
                     <p className="timeline-text">{item.text}</p>
-                  </Link>
+                    <Link
+                      href={`/events/${item.id}`}
+                      className="timeline-more-info"
+                      aria-label={`More info about ${item.heading}`}
+                    >
+                      More Info
+                      <ArrowRight size={14} />
+                    </Link>
+                  </div>
                 </div>
               );
             })}

@@ -6,7 +6,7 @@ import { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { classifyEvents, type UpcomingEvent } from "@/data/events";
-import { Calendar, MapPin } from "lucide-react";
+import { ArrowRight, Calendar, MapPin } from "lucide-react";
 
 export default function Events() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -105,6 +105,10 @@ export default function Events() {
         </div>
         <h5 className="event-card-title">{event.title}</h5>
         <p className="event-card-desc">{event.description}</p>
+        <span className="event-more-info">
+          More Info
+          <ArrowRight size={14} />
+        </span>
       </div>
     </Link>
   );
@@ -177,6 +181,10 @@ export default function Events() {
                       <span>{featured.location}</span>
                     </div>
                   </div>
+                  <span className="event-more-info featured-more-info">
+                    More Info
+                    <ArrowRight size={14} />
+                  </span>
                 </div>
               </div>
             </Link>

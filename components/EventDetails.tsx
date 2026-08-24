@@ -268,6 +268,18 @@ export default function EventDetails({ event }: { event: EventDetail }) {
                 <span className="info-value">{event.teamSize}</span>
               </div>
             )}
+            {event.registrationLink && (
+              <a
+                href={event.registrationLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="info-item info-item-link"
+              >
+                <ExternalLink size={20} />
+                <span className="info-label">Registration</span>
+                <span className="info-value">Register Now &rarr;</span>
+              </a>
+            )}
             {event.eligibility && (
               <div className="info-item">
                 <UserCheck size={20} />

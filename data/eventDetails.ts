@@ -155,6 +155,8 @@ export const eventDetails: EventDetail[] = [
       "Problem statement and evaluation (6 hours). Rs 300 per team (1-3 members).",
     about:
       "The IntraDept Hackathon is an intra-departmental hackathon challenge where teams of 1 to 3 members, have to work on the given problem statement over a span of 6 hours. Teams are evaluated on innovation, technical implementation and feasibility of their solution. This is a great opportunity to collaborate, learn, and build something meaningful under time pressure.",
+    // REGISTRATION URL — change ONLY this value per event (any valid https:// link works)
+    registrationLink: "https://hacksprint-sigma.vercel.app/",
     registrationFee: "Rs. 300 per team",
     teamSize: "1-3 members",
     rules: [

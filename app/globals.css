@@ -4794,6 +4794,27 @@ textarea {
   line-height: 1.5;
 }
 
+/* Info Grid: Registration link card */
+.info-item.info-item-link {
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    border-color var(--transition-normal),
+    background var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.info-item.info-item-link:hover {
+  border-color: var(--color-gold);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-2px);
+}
+
+.info-item.info-item-link:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
 /* Rules List */
 .event-detail-rules-list {
   list-style: none;

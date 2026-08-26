@@ -457,23 +457,37 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
     // STEP 7
     console.log(`Attempting to load template image: ${imageUrl}`);
     const img = new window.Image();
-    try {
-      await new Promise<void>((resolve, reject) => {
-        img.onload = () => {
-          console.log("Image successfully loaded");
-          resolve();
-        };
-        img.onerror = (errEvent) => {
-          const loadError = new Error(`Failed to load image resource at path: ${imageUrl}`);
-          console.error("Image load failed", errEvent);
-          reject(loadError);
-        };
-        img.src = imageUrl;
-      });
-    } catch (err: any) {
-      const errMsg = err instanceof Error ? err.message : String(err);
-      console.error("Failure occurred while: Loading certificate template", err);
-      setErrorMsg(`Certificate template missing. Details: ${errMsg}`);
+    const candidateUrls = [
+      imageUrl,
+      `/certificates/${selectedEvent}/${certType}-certificate.png`,
+      `/certificates/${selectedEvent}/Particiaption certificate.png`,
+      `/certificates/${selectedEvent}/participation certificate.png`,
+      `/certificates/${selectedEvent}/certificate.png`,
+    ];
+
+    let imageLoaded = false;
+    for (const url of candidateUrls) {
+      try {
+        await new Promise<void>((resolve, reject) => {
+          img.onload = () => {
+            console.log(`Image successfully loaded from: ${url}`);
+            resolve();
+          };
+          img.onerror = (errEvent) => {
+            reject(new Error(`Failed to load image resource at path: ${url}`));
+          };
+          img.src = url;
+        });
+        imageLoaded = true;
+        break;
+      } catch {
+        // try next candidate
+      }
+    }
+
+    if (!imageLoaded) {
+      console.error("Failure occurred while: Loading certificate template");
+      setErrorMsg(`Certificate template missing. Details: Failed to load image resource at path: ${imageUrl}`);
       setLoading(false);
       return;
     }

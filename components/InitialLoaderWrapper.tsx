@@ -8,6 +8,7 @@ export default function InitialLoaderWrapper() {
   const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const hasLoaded = sessionStorage.getItem("auron_session_loaded");
     if (hasLoaded) {

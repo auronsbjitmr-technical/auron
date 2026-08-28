@@ -421,6 +421,8 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
     }
 
     setLoading(true);
+    // Yield to the browser to ensure the button loading state paints immediately (INP protection)
+    await new Promise((resolve) => setTimeout(resolve, 0));
 
     // STEP 4
     const dataJsonUrl = `/certificates/${selectedEvent}/data.json`;
@@ -700,7 +702,7 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
   };
 
   return (
-    <section className="hero" id="certificates-portal" style={{ minHeight: "100vh", height: "auto", paddingBottom: "100px" }}>
+    <section className="hero" id="certificates-portal">
       <div className="hero-grid-overlay" />
       <div className="hero-beam beam-1" />
       <div className="hero-beam beam-2" />
@@ -708,7 +710,7 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
 
       {/* Ambient backgrounds */}
       <div className="gold-glow top-right" />
-      <div className="gold-glow bottom-left" style={{ bottom: "-200px" }} />
+      <div className="gold-glow bottom-left" />
 
 
 
@@ -883,6 +885,8 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
             <img
               src={successData.dataUrl}
               alt="Certificate Preview"
+              width={successData.naturalWidth}
+              height={successData.naturalHeight}
               style={{
                 width: "100%",
                 height: "auto",

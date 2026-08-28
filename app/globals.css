@@ -5081,6 +5081,39 @@ textarea {
   }
 }
 
+/* ========================================================
+   CERTIFICATE PORTAL LAYOUT STABILITY & WEB VITALS (CLS/LCP/INP)
+   ======================================================== */
+
+#certificates-portal {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  min-height: 100vh !important;
+  height: auto !important;
+  padding-top: clamp(100px, 14vh, 125px) !important;
+  padding-bottom: 100px !important;
+}
+
+#certificates-portal .hero-content {
+  padding-top: 0 !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+/* Stable top-anchored glow: prevents massive downward shift when certificate card appears */
+#certificates-portal .gold-glow.bottom-left {
+  top: clamp(480px, 60vh, 680px) !important;
+  bottom: auto !important;
+}
+
+/* Eliminate FCP & LCP render delay: above-the-fold certificate portal elements render immediately */
+#certificates-portal .reveal-element {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 /* Mobile GPU & Compositing Performance Optimizations for Certificate Portal */
 @media (max-width: 768px) {
   #certificates-portal #hero-canvas {

@@ -111,8 +111,11 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
     naturalHeight: number;
   } | null>(null);
 
-  // Background Particles
+  // Background Particles (Optimized for desktop only to eliminate mobile CPU throttling)
   useEffect(() => {
+    const isMobile = window.innerWidth <= 768 || window.matchMedia("(pointer: coarse)").matches;
+    if (isMobile) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -123,6 +126,10 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
     const mouse = { x: null as number | null, y: null as number | null, radius: 150 };
 
     const resizeCanvas = () => {
+      if (window.innerWidth <= 768) {
+        stopAnimation();
+        return;
+      }
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
       initParticles();
@@ -147,10 +154,9 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
 
     const initParticles = () => {
       particlesArray = [];
-      const isMobile = window.innerWidth <= 768;
-      const divisor = isMobile ? 45000 : 12000;
-      const minP = isMobile ? 8 : 30;
-      const maxP = isMobile ? 20 : 100;
+      const divisor = 12000;
+      const minP = 30;
+      const maxP = 100;
       const n = Math.min(Math.max(Math.floor((canvas.width * canvas.height) / divisor), minP), maxP);
       const isLight = document.documentElement.getAttribute("data-theme") === "light";
       const color = isLight ? "rgba(13, 71, 161, 0.16)" : "rgba(59, 156, 255, 0.22)";
@@ -253,7 +259,7 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
 
   // Magnetic Snapping Effect for Buttons
   useEffect(() => {
-    if (window.matchMedia("(max-width: 768px)").matches) return;
+    if (window.innerWidth <= 768 || window.matchMedia("(pointer: coarse)").matches) return;
     const magneticElements = document.querySelectorAll(".magnetic-element");
     const cleanups: (() => void)[] = [];
 
@@ -284,8 +290,9 @@ export default function CertificatesClient({ events }: CertificatesClientProps) 
     };
   }, [successData, errorMsg, loading]);
 
-  // Card Hover Tilting
+  // Card Hover Tilting (Desktop only - eliminates synchronous layout reflows on mobile touch)
   const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (window.innerWidth <= 768 || window.matchMedia("(pointer: coarse)").matches) return;
     const card = cardRef.current;
     if (!card) return;
     const rect = card.getBoundingClientRect();

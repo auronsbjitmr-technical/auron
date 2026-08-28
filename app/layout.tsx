@@ -109,7 +109,12 @@ export default function RootLayout({
               
               var hasLoaded = sessionStorage.getItem('auron_session_loaded');
               if (!hasLoaded) {
-                document.documentElement.classList.add('global-loading');
+                var isRoot = window.location.pathname === '/' || window.location.pathname === '';
+                if (isRoot) {
+                  document.documentElement.classList.add('global-loading');
+                } else {
+                  sessionStorage.setItem('auron_session_loaded', 'true');
+                }
               }
               document.documentElement.classList.add('js-enabled');
             })();`,

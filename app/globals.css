@@ -5080,3 +5080,20 @@ textarea {
     height: 250px;
   }
 }
+
+/* Mobile GPU & Compositing Performance Optimizations for Certificate Portal */
+@media (max-width: 768px) {
+  #certificates-portal #hero-canvas {
+    display: none !important;
+  }
+
+  .custom-dropdown-menu {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-card {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+}

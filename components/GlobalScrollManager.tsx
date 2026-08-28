@@ -56,23 +56,32 @@ export default function GlobalScrollManager() {
 
     elements.forEach((el: unknown) => {
       const element = el as HTMLElement;
-      gsap.set(element, { y: 20, opacity: 0 });
+      const rect = element.getBoundingClientRect();
+      const isAboveFold = rect.top < window.innerHeight * 0.85;
 
-      const t = gsap.to(
-        element,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: element,
-            start: "top 90%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-      tweens.push(t);
+      if (isAboveFold) {
+        // Above-the-fold elements stay immediately visible to protect LCP & FCP
+        gsap.set(element, { y: 0, opacity: 1 });
+      } else {
+        // Below-the-fold elements animate into view on scroll
+        gsap.set(element, { y: 20, opacity: 0 });
+
+        const t = gsap.to(
+          element,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: element,
+              start: "top 90%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+        tweens.push(t);
+      }
     });
 
     // Parallax scrolling decorations

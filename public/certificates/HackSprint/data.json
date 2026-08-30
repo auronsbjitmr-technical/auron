@@ -1,0 +1,605 @@
+{
+  "eventName": "HackSprint",
+  "participants": [
+    {
+      "name": "Mayan Khobragade",
+      "usn": "EE24TCS001",
+      "certificate": "participation"
+    },
+    {
+      "name": "Vaibhav Sembekar",
+      "usn": "CS24056",
+      "certificate": "participation"
+    },
+    {
+      "name": "Dushant Sewatkar",
+      "usn": "CS25D006",
+      "certificate": "participation"
+    },
+    {
+      "name": "Purvesh Pathekar",
+      "usn": "CM25105",
+      "certificate": "participation"
+    },
+    {
+      "name": "Aryan Shastrakar",
+      "usn": "CM25070",
+      "certificate": "participation"
+    },
+    {
+      "name": "Tejal Selokar",
+      "usn": "CM25118",
+      "certificate": "participation"
+    },
+    {
+      "name": "Kashish Vijay Thakre",
+      "usn": "CM24015",
+      "certificate": "participation"
+    },
+    {
+      "name": "Dhanshri Gaurkhede",
+      "usn": "CM24013",
+      "certificate": "participation"
+    },
+    {
+      "name": "Prajwal Katkar",
+      "usn": "CM24162",
+      "certificate": "participation"
+    },
+    {
+      "name": "Amruta Khadse",
+      "usn": "CM24006",
+      "certificate": "participation"
+    },
+    {
+      "name": "Lucky Patel",
+      "usn": "CS24150",
+      "certificate": "participation"
+    },
+    {
+      "name": "Arnav Khapekar",
+      "usn": "CS24134",
+      "certificate": "participation"
+    },
+    {
+      "name": "Yogesh Kadwe",
+      "usn": "CS24188",
+      "certificate": "participation"
+    },
+    {
+      "name": "Manoj Jaybhaye",
+      "usn": "CS24152",
+      "certificate": "participation"
+    },
+    {
+      "name": "Nidhi Sonkusre",
+      "usn": "CS24158",
+      "certificate": "participation"
+    },
+    {
+      "name": "Yash Petkar",
+      "usn": "CM25126",
+      "certificate": "participation"
+    },
+    {
+      "name": "Suhani Kadu",
+      "usn": "CM25114",
+      "certificate": "participation"
+    },
+    {
+      "name": "Vinit Bodhe",
+      "usn": "CM25123",
+      "certificate": "participation"
+    },
+    {
+      "name": "Areeba Qureshi",
+      "usn": "CM24071",
+      "certificate": "participation"
+    },
+    {
+      "name": "Faiz Shaikh",
+      "usn": "CM24072",
+      "certificate": "participation"
+    },
+    {
+      "name": "Anushka Pawar",
+      "usn": "CM24070",
+      "certificate": "participation"
+    },
+    {
+      "name": "Hrishita Jaiswal",
+      "usn": "IT25080",
+      "certificate": "participation"
+    },
+    {
+      "name": "Bhumika Dhakne",
+      "usn": "IT25075",
+      "certificate": "participation"
+    },
+    {
+      "name": "Harshita Sharma",
+      "usn": "IT25126",
+      "certificate": "participation"
+    },
+    {
+      "name": "Nivedita Nandurkar",
+      "usn": "CM25037",
+      "certificate": "participation"
+    },
+    {
+      "name": "Samiksha Bawankar",
+      "usn": "CM25050",
+      "certificate": "participation"
+    },
+    {
+      "name": "Krutika Dhawle",
+      "usn": "CM25025",
+      "certificate": "participation"
+    },
+    {
+      "name": "Vishesh Shrikhande",
+      "usn": "CM25124",
+      "certificate": "participation"
+    },
+    {
+      "name": "Samruddhi Varma",
+      "usn": "CM25110",
+      "certificate": "participation"
+    },
+    {
+      "name": "Jayshri Dhote",
+      "usn": "CM25083",
+      "certificate": "participation"
+    },
+    {
+      "name": "Venkatesh Chincholkar",
+      "usn": "CM25122",
+      "certificate": "participation"
+    },
+    {
+      "name": "Vedant Piparhete",
+      "usn": "CM25121",
+      "certificate": "participation"
+    },
+    {
+      "name": "Rushita Limje",
+      "usn": "CS24036",
+      "certificate": "participation"
+    },
+    {
+      "name": "Mausam Siriah",
+      "usn": "CS24020",
+      "certificate": "participation"
+    },
+    {
+      "name": "Syed Mohammed Aqil",
+      "usn": "CS25049",
+      "certificate": "participation"
+    },
+    {
+      "name": "Atharv Deorankar",
+      "usn": "ET24005",
+      "certificate": "participation"
+    },
+    {
+      "name": "Aditya Doifode",
+      "usn": "ET24003",
+      "certificate": "participation"
+    },
+    {
+      "name": "Gaurav Kalambe",
+      "usn": "ET24012",
+      "certificate": "participation"
+    },
+    {
+      "name": "Sunkalp R Khadse",
+      "usn": "IT25057",
+      "certificate": "participation"
+    },
+    {
+      "name": "Yash Vinchurkar",
+      "usn": "IT25062",
+      "certificate": "participation"
+    },
+    {
+      "name": "Devesh Zade",
+      "usn": "IT25017",
+      "certificate": "participation"
+    },
+    {
+      "name": "Trisha Verma",
+      "usn": "CS24182",
+      "certificate": "participation"
+    },
+    {
+      "name": "Parth Gawande",
+      "usn": "CS24160",
+      "certificate": "participation"
+    },
+    {
+      "name": "Harshwardhan Shirke",
+      "usn": "CS24208",
+      "certificate": "participation"
+    },
+    {
+      "name": "Rutuja Durbule",
+      "usn": "IT25045",
+      "certificate": "participation"
+    },
+    {
+      "name": "Arya Jibhakate",
+      "usn": "IT25009",
+      "certificate": "participation"
+    },
+    {
+      "name": "Jayshree Bhalerao",
+      "usn": "IT25026",
+      "certificate": "participation"
+    },
+    {
+      "name": "Priyanka Hajare",
+      "usn": "CM25104",
+      "certificate": "participation"
+    },
+    {
+      "name": "Ketki Gaidhane",
+      "usn": "CM25087",
+      "certificate": "participation"
+    },
+    {
+      "name": "Prachi Pande",
+      "usn": "CM25100",
+      "certificate": "participation"
+    },
+    {
+      "name": "Akansha Sharma",
+      "usn": "CS25130",
+      "certificate": "participation"
+    },
+    {
+      "name": "Vedant Gawai",
+      "usn": "IT25120",
+      "certificate": "participation"
+    },
+    {
+      "name": "Atharva Thaware",
+      "usn": "IT25072",
+      "certificate": "participation"
+    },
+    {
+      "name": "Maayli Tabhane",
+      "usn": "CM25090",
+      "certificate": "participation"
+    },
+    {
+      "name": "Dharti charpe",
+      "usn": "CM25075",
+      "certificate": "participation"
+    },
+    {
+      "name": "Vaishnavi Dubey",
+      "usn": "CS25248",
+      "certificate": "participation"
+    },
+    {
+      "name": "Moiz Ali",
+      "usn": "CS25217",
+      "certificate": "participation"
+    },
+    {
+      "name": "Sanskar khliarkar",
+      "usn": "CS25046",
+      "certificate": "participation"
+    },
+    {
+      "name": "Sammek Dongare",
+      "usn": "CM24047",
+      "certificate": "participation"
+    },
+    {
+      "name": "Soumya Dhakate",
+      "usn": "CM24050",
+      "certificate": "participation"
+    },
+    {
+      "name": "Yutika Manekar",
+      "usn": "CM24061",
+      "certificate": "participation"
+    },
+    {
+      "name": "Vidnesh Waghaye",
+      "usn": "IT25060",
+      "certificate": "participation"
+    },
+    {
+      "name": "Saurav Devhare",
+      "usn": "IT25049",
+      "certificate": "participation"
+    },
+    {
+      "name": "Vedant Waghmare",
+      "usn": "IT25059",
+      "certificate": "participation"
+    },
+    {
+      "name": "Sarthak Ikhankar",
+      "usn": "CS25234",
+      "certificate": "participation"
+    },
+    {
+      "name": "Yogeshwari Sao",
+      "usn": "CS25252",
+      "certificate": "participation"
+    },
+    {
+      "name": "Rudra Bais",
+      "usn": "CE25228",
+      "certificate": "participation"
+    },
+    {
+      "name": "Kashish Singh",
+      "usn": "CM24086",
+      "certificate": "participation"
+    },
+    {
+      "name": "Laxmi Mankar",
+      "usn": "CM24092",
+      "certificate": "participation"
+    },
+    {
+      "name": "Tanuja Gandhare",
+      "usn": "CM24117",
+      "certificate": "participation"
+    },
+    {
+      "name": "Vidisha Sachin Nagpure",
+      "usn": "CM24124",
+      "certificate": "participation"
+    },
+    {
+      "name": "Riya Thakur",
+      "usn": "CM24105",
+      "certificate": "participation"
+    },
+    {
+      "name": "Himani Kolhe",
+      "usn": "CM24081",
+      "certificate": "participation"
+    },
+    {
+      "name": "Tanushree Saundarkar",
+      "usn": "CM24118",
+      "certificate": "participation"
+    },
+    {
+      "name": "Uday Dhoke",
+      "usn": "CM24120",
+      "certificate": "participation"
+    },
+    {
+      "name": "Kalyani Naukarkar",
+      "usn": "CM24084",
+      "certificate": "participation"
+    },
+    {
+      "name": "Khushi Sathone",
+      "usn": "CM24087",
+      "certificate": "participation"
+    },
+    {
+      "name": "Hariom Dwivedi",
+      "usn": "CM24080",
+      "certificate": "participation"
+    },
+    {
+      "name": "Manas N. Pingle",
+      "usn": "ET24022",
+      "certificate": "participation"
+    },
+    {
+      "name": "Sahil Patil",
+      "usn": "ET24038",
+      "certificate": "participation"
+    },
+    {
+      "name": "Himanshu Kukde",
+      "usn": "ET24015",
+      "certificate": "participation"
+    },
+    {
+      "name": "Tarik Akram Ansari",
+      "usn": "CM24054",
+      "certificate": "participation"
+    },
+    {
+      "name": "Yashika Nagdeve",
+      "usn": "CM24059",
+      "certificate": "participation"
+    },
+    {
+      "name": "Yash Yeole",
+      "usn": "CM24058",
+      "certificate": "participation"
+    },
+    {
+      "name": "Vatsal Maske",
+      "usn": "CS24185",
+      "certificate": "participation"
+    },
+    {
+      "name": "Khushal Dhakate",
+      "usn": "CS24149",
+      "certificate": "participation"
+    },
+    {
+      "name": "Tanvesh Punekar",
+      "usn": "CS24052",
+      "certificate": "participation"
+    },
+    {
+      "name": "Shiban Nandi",
+      "usn": "CM25D009",
+      "certificate": "participation"
+    },
+    {
+      "name": "Aakshay Dhoke",
+      "usn": "CM25D001",
+      "certificate": "participation"
+    },
+    {
+      "name": "Abhinav Doifode",
+      "usn": "CM24002",
+      "certificate": "participation"
+    },
+    {
+      "name": "Neeraj khapre",
+      "usn": "CM25036",
+      "certificate": "participation"
+    },
+    {
+      "name": "Riya Chauhan",
+      "usn": "CS25166",
+      "certificate": "participation"
+    },
+    {
+      "name": "Yash choudhary",
+      "usn": "CS25061",
+      "certificate": "participation"
+    },
+    {
+      "name": "Piyush Kanere",
+      "usn": "CM25040",
+      "certificate": "participation"
+    },
+    {
+      "name": "Devika Parsatwar",
+      "usn": "CM25015",
+      "certificate": "participation"
+    },
+    {
+      "name": "Himanshu Waghaye",
+      "usn": "CM25019",
+      "certificate": "participation"
+    },
+    {
+      "name": "Aditya Agre",
+      "usn": "CD25066",
+      "certificate": "participation"
+    },
+    {
+      "name": "Samyak",
+      "usn": "CD24042",
+      "certificate": "participation"
+    },
+    {
+      "name": "Isha Krushna Dhok",
+      "usn": "IT25081",
+      "certificate": "participation"
+    },
+    {
+      "name": "Ilya Sathrausane",
+      "usn": "IT25083",
+      "certificate": "participation"
+    },
+    {
+      "name": "Pranay Lote",
+      "usn": "IT25097",
+      "certificate": "participation"
+    },
+    {
+      "name": "Sonu Rana",
+      "usn": "CS24046",
+      "certificate": "participation"
+    },
+    {
+      "name": "Niraj yawalkar",
+      "usn": "CS24025",
+      "certificate": "participation"
+    },
+    {
+      "name": "Om panchbhai",
+      "usn": "CS24027",
+      "certificate": "participation"
+    },
+    {
+      "name": "Pratham Gawande",
+      "usn": "CM24102",
+      "certificate": "participation"
+    },
+    {
+      "name": "Harshit Rawat",
+      "usn": "CS24084",
+      "certificate": "participation"
+    },
+    {
+      "name": "Palak Bedi",
+      "usn": "CS25D012",
+      "certificate": "participation"
+    },
+    {
+      "name": "Sachi Gundawar",
+      "usn": "CS25D018",
+      "certificate": "participation"
+    },
+    {
+      "name": "Darshan Lad",
+      "usn": "CS25D004",
+      "certificate": "participation"
+    },
+    {
+      "name": "Palak Ajmire",
+      "usn": "CS25D013",
+      "certificate": "participation"
+    },
+    {
+      "name": "Trupti Hadke",
+      "usn": "CS25D025",
+      "certificate": "participation"
+    },
+    {
+      "name": "Rutika Naktode",
+      "usn": "CS25D017",
+      "certificate": "participation"
+    },
+    {
+      "name": "Rishabh Saroj",
+      "usn": "CM25046",
+      "certificate": "participation"
+    },
+    {
+      "name": "Aastha jitender tiwari",
+      "usn": "CS25073",
+      "certificate": "participation"
+    },
+    {
+      "name": "Milan Soni",
+      "usn": "CM25029",
+      "certificate": "participation"
+    },
+    {
+      "name": "Sujal Kawale",
+      "usn": "CD25D008",
+      "certificate": "participation"
+    },
+    {
+      "name": "Shravil Karotiya",
+      "usn": "CD24049",
+      "certificate": "participation"
+    },
+    {
+      "name": "Aryan Nagmote",
+      "usn": "CD24006",
+      "certificate": "participation"
+    },
+    {
+      "name": "Ayush Roy",
+      "usn": "CM24075",
+      "certificate": "participation"
+    },
+    {
+      "name": "Arya Rewatkar",
+      "usn": "CM24073",
+      "certificate": "participation"
+    }
+  ]
+}

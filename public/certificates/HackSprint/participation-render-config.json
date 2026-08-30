@@ -1,0 +1,12 @@
+{
+  "fontFamily": "Cinzel",
+  "fontSize": 64,
+  "fontWeight": "bold",
+  "textColor": "#3B1B94",
+  "textAlign": "center",
+  "textBaseline": "middle",
+  "textX": 746,
+  "textY": 655,
+  "maxWidth": 700,
+  "shadow": false
+}

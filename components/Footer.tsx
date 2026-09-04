@@ -78,7 +78,14 @@ export default function Footer() {
             <div className="footer-info-details" style={{ marginBottom: "20px" }}>
               <div className="footer-info-item">
                 <MapPin size={13} />
-                <span>S.B. Jain Institute of Technology, Management and Research, Nagpur</span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=S.B.+Jain+Institute+of+Technology%2C+Management+and+Research%2C+Nagpur"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-info-link"
+                >
+                  S.B. Jain Institute of Technology, Management and Research, Nagpur
+                </a>
               </div>
 
               <div className="footer-info-item">

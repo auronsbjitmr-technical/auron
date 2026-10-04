@@ -38,54 +38,62 @@ function parseEventDate(dateStr: string): number {
   return isNaN(fallback) ? 0 : fallback;
 }
 
-export default function Timeline() {
-  const progressBarRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+interface TimelineItem {
+  id: string;
+  date: string;
+  heading: string;
+  text: string;
+  icon: React.ComponentType<{ size?: number }>;
+  order?: number;
+}
 
-  const [timelineData, setTimelineData] = useState(() => {
-    const { past, upcoming, featured } = classifyEvents();
-    const autoPastEvents = PAST_EVENTS_DATA.map((e) => ({
-      id: e.id,
-      date: e.date,
-      heading: e.title,
-      text: e.description,
-      icon: getEventIcon(e.tag || e.category),
-    }));
-    const classifiedUpcoming = [...past, ...(featured ? [featured] : []), ...upcoming].map((e) => ({
+/**
+ * `classifyEvents()` buckets events as past / featured / upcoming, which is not
+ * display order. Re-sort by the manual `order` from eventDetails.ts so the
+ * timeline follows the forum's flow; unordered entries fall back to date order.
+ */
+function byDisplayOrder(a: TimelineItem, b: TimelineItem): number {
+  const aOrder = a.order ?? Number.MAX_SAFE_INTEGER;
+  const bOrder = b.order ?? Number.MAX_SAFE_INTEGER;
+  if (aOrder !== bOrder) return aOrder - bOrder;
+  return parseEventDate(a.date) - parseEventDate(b.date);
+}
+
+function buildTimelineData(): TimelineItem[] {
+  const { past, upcoming, featured } = classifyEvents();
+
+  const manualPast: TimelineItem[] = PAST_EVENTS_DATA.map((e) => ({
+    id: e.id,
+    date: e.date,
+    heading: e.title,
+    text: e.description,
+    icon: getEventIcon(e.tag || e.category),
+  }));
+
+  const classified: TimelineItem[] = [...past, ...(featured ? [featured] : []), ...upcoming].map(
+    (e) => ({
       id: e.id,
       date: e.date,
       heading: e.title,
       text: e.description,
       icon: getEventIcon(e.category),
-    }));
-    return [...autoPastEvents, ...classifiedUpcoming].sort(
-      (a, b) => parseEventDate(a.date) - parseEventDate(b.date)
-    );
-  });
+      order: e.order,
+    })
+  );
+
+  return [...manualPast, ...classified].sort(byDisplayOrder);
+}
+
+export default function Timeline() {
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const [timelineData, setTimelineData] = useState<TimelineItem[]>(buildTimelineData);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const { past, upcoming, featured } = classifyEvents();
-      const autoPastEvents = PAST_EVENTS_DATA.map((e) => ({
-        id: e.id,
-        date: e.date,
-        heading: e.title,
-        text: e.description,
-        icon: getEventIcon(e.tag || e.category),
-      }));
-      const classifiedUpcoming = [...past, ...(featured ? [featured] : []), ...upcoming].map((e) => ({
-        id: e.id,
-        date: e.date,
-        heading: e.title,
-        text: e.description,
-        icon: getEventIcon(e.category),
-      }));
-      setTimelineData(
-        [...autoPastEvents, ...classifiedUpcoming].sort(
-          (a, b) => parseEventDate(a.date) - parseEventDate(b.date)
-        )
-      );
+      setTimelineData(buildTimelineData());
     }, 60000);
     return () => clearInterval(interval);
   }, []);

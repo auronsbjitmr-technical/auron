@@ -1,5 +1,8 @@
 import { eventDetails, type EventDetail } from "@/data/eventDetails";
 
+/** Shown whenever an event has no artwork of its own. */
+export const AURON_DEFAULT_IMAGE = "/logo/auron.png";
+
 export interface UpcomingEvent {
   id: string;
   slug: string;
@@ -12,6 +15,10 @@ export interface UpcomingEvent {
   location: string;
   image: string;
   description: string;
+  /** Manual display order from `eventDetails.ts`; undefined = sort last by date. */
+  order?: number;
+  /** false = hidden from the Timeline / Events listings. */
+  listed?: boolean;
 }
 
 export interface PastEvent {
@@ -37,8 +44,10 @@ export const UPCOMING_EVENTS_DATA: UpcomingEvent[] = eventDetails.map(
     dateISO: event.dateISO ?? "",
     time: event.time,
     location: event.venue ?? "",
-    image: event.image ?? "/logo/auron.png",
+    image: event.image || AURON_DEFAULT_IMAGE,
     description: event.description ?? "",
+    order: event.order,
+    listed: event.listed,
   })
 );
 
@@ -50,11 +59,24 @@ export interface EventClassification {
   past: UpcomingEvent[];
 }
 
+/**
+ * Display order for the Timeline / Events listings: explicit `order` first
+ * (ascending), then anything unordered by date. Events with `listed: false`
+ * are excluded — their detail pages stay reachable via getEventBySlug().
+ */
+export function sortEventsForDisplay(events: UpcomingEvent[]): UpcomingEvent[] {
+  return [...events].sort((a, b) => {
+    const aOrder = a.order ?? Number.MAX_SAFE_INTEGER;
+    const bOrder = b.order ?? Number.MAX_SAFE_INTEGER;
+    if (aOrder !== bOrder) return aOrder - bOrder;
+    return new Date(a.dateISO).getTime() - new Date(b.dateISO).getTime();
+  });
+}
+
 export function classifyEvents(): EventClassification {
   const now = new Date();
-  const sorted = [...UPCOMING_EVENTS_DATA].sort(
-    (a, b) =>
-      new Date(a.dateISO).getTime() - new Date(b.dateISO).getTime()
+  const sorted = sortEventsForDisplay(
+    UPCOMING_EVENTS_DATA.filter((event) => event.listed !== false)
   );
 
   const past: UpcomingEvent[] = [];

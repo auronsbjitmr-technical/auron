@@ -98,6 +98,33 @@ export function getWebPageSchema(url: string, name: string, description: string,
   };
 }
 
+/**
+ * Intrinsic pixel size of each bundled event image, emitted as the
+ * schema.org `image` width/height. Real values keep the declared aspect
+ * ratio correct instead of guessing per-event.
+ */
+const EVENT_IMAGE_DIMENSIONS: Record<string, readonly [number, number]> = {
+  "/assets/alumni-interaction.jpg": [1948, 3464],
+  "/assets/canava.png": [1236, 1600],
+  "/assets/git-second-year.png": [843, 1264],
+  "/assets/git-third-year.png": [843, 1264],
+  "/assets/hack-sprint.jpg": [720, 1040],
+  "/assets/teachers-day.png": [1242, 695],
+  "/assets/tech-tank.png": [720, 1040],
+  "/assets/tug-of-war.jpg": [995, 465],
+  "/assets/viksit-bharat.jpeg": [739, 1021],
+};
+
+/** Used for images with no recorded size, e.g. Hall of Fame photos. */
+const DEFAULT_EVENT_IMAGE_DIMENSIONS: readonly [number, number] = [699, 727];
+
+export function getEventImageDimensions(
+  image?: string
+): readonly [number, number] {
+  if (!image) return DEFAULT_EVENT_IMAGE_DIMENSIONS;
+  return EVENT_IMAGE_DIMENSIONS[image] ?? DEFAULT_EVENT_IMAGE_DIMENSIONS;
+}
+
 export function getEventsSchema(eventsData: UpcomingEvent[]) {
   return {
     "@context": "https://schema.org",
@@ -117,21 +144,7 @@ export function getEventsSchema(eventsData: UpcomingEvent[]) {
     "mainEntity": {
       "@type": "ItemList",
       "itemListElement": eventsData.map((event, idx) => {
-        let width = 699;
-        let height = 727;
-        if (event.image === "/assets/aisong.png") {
-          width = 768;
-          height = 557;
-        } else if (event.image === "/assets/canava.png") {
-          width = 1236;
-          height = 1600;
-        } else if (event.image === "/assets/prompt.jpg") {
-          width = 1024;
-          height = 559;
-        } else if (event.image === "/assets/tugofwar.jpg") {
-          width = 995;
-          height = 465;
-        }
+        const [width, height] = getEventImageDimensions(event.image);
 
         const attendanceMode = event.wing === "hybrid"
           ? "https://schema.org/MixedEventAttendanceMode"

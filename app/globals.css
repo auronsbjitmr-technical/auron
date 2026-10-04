@@ -4120,7 +4120,14 @@ textarea {
 }
 
 .hall-of-fame-item {
+  display: block;
   width: 280px;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
   border-radius: var(--radius-md);
   overflow: hidden;
   cursor: zoom-in;
@@ -4149,6 +4156,7 @@ textarea {
 @media (max-width: 768px) {
   .hall-of-fame-grid {
     gap: 12px;
+    margin-top: 40px;
   }
 
   .hall-of-fame-item {

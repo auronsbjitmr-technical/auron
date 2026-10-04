@@ -1,21 +1,22 @@
 "use client";
 
-import { HALL_OF_FAME_PHOTOS } from "@/data/hallOfFame";
 import Image from "next/image";
+import { HALL_OF_FAME_PHOTOS } from "@/data/hallOfFame";
+
+interface LightboxImage {
+  src: string;
+  title: string;
+}
 
 interface HallOfFameProps {
-  onImageClick: (index: number, imagesArray: { src: string; title: string }[]) => void;
+  onImageClick: (index: number, imagesArray: LightboxImage[]) => void;
 }
 
 export default function HallOfFame({ onImageClick }: HallOfFameProps) {
-  const images = [...HALL_OF_FAME_PHOTOS].reverse().map((photo) => ({
+  const images: LightboxImage[] = HALL_OF_FAME_PHOTOS.map((photo) => ({
     src: photo.src,
     title: photo.alt,
   }));
-
-  const handleCardClick = (index: number) => {
-    onImageClick(index, images);
-  };
 
   return (
     <section className="section-padding hall-of-fame" id="hall-of-fame">
@@ -26,12 +27,13 @@ export default function HallOfFame({ onImageClick }: HallOfFameProps) {
         </div>
 
         <div className="hall-of-fame-grid reveal-element">
-          {[...HALL_OF_FAME_PHOTOS].reverse().map((photo, idx) => (
-            <div
+          {HALL_OF_FAME_PHOTOS.map((photo, idx) => (
+            <button
+              type="button"
               key={photo.id}
               className="hall-of-fame-item"
-              style={{ cursor: "zoom-in" }}
-              onClick={() => handleCardClick(idx)}
+              aria-label={`Open ${photo.alt} in fullscreen`}
+              onClick={() => onImageClick(idx, images)}
             >
               <Image
                 src={photo.src}
@@ -39,9 +41,9 @@ export default function HallOfFame({ onImageClick }: HallOfFameProps) {
                 width={400}
                 height={300}
                 className="hall-of-fame-img"
-                style={{ objectFit: "cover" }}
+                sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 280px"
               />
-            </div>
+            </button>
           ))}
         </div>
       </div>

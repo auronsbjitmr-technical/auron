@@ -25,7 +25,7 @@ export default function EventDetails({ event }: { event: EventDetail }) {
   const wing = event.wing ?? "hybrid";
 
   const eventPhotos = useMemo(
-    () => HALL_OF_FAME_PHOTOS.filter((photo) => photo.eventId === event.slug),
+    () => HALL_OF_FAME_PHOTOS.filter((photo) => photo.eventIds?.includes(event.slug)),
     [event.slug]
   );
   const [activeIndex, setActiveIndex] = useState(0);

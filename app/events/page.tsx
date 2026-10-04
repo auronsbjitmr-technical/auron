@@ -9,7 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function EventsPage() {
-  const schema = getEventsSchema(UPCOMING_EVENTS_DATA);
+  // Only advertise events that are actually listed on the page — events marked
+  // `listed: false` are hidden from the UI and must stay out of the JSON-LD too.
+  const schema = getEventsSchema(UPCOMING_EVENTS_DATA.filter((e) => e.listed !== false));
   return (
     <>
       <script

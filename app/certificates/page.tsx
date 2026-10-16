@@ -174,10 +174,11 @@ export default function CertificatesPage() {
 
       // Custom event chronological ordering: HackSprint (top), TechTank, Ctrl+Create (bottom)
       const eventOrder: Record<string, number> = {
-        "HackSprint": 1,
-        "TechTank": 2,
-        "canva-event": 3,
-        "cyber-hunt": 4,
+        "code-encore": 1,
+        "HackSprint": 2,
+        "TechTank": 3,
+        "canva-event": 4,
+        "cyber-hunt": 5,
       };
 
       events.sort((a, b) => {

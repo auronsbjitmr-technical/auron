@@ -324,6 +324,48 @@ export const HALL_OF_FAME_EVENTS: HallOfFameEvent[] = [
       },
     ],
   },
+  {
+    id: "aws-installation",
+    title: "AWS Installation",
+    photos: [
+      {
+        id: "aws-installation-1",
+        src: "/hall_of_fame/aws-crowd.jpeg",
+        alt: "AWS Installation — Audience and Stage",
+        eventIds: ["aws-installation"],
+      },
+      {
+        id: "aws-installation-2",
+        src: "/hall_of_fame/aws.jpeg",
+        alt: "AWS Installation — Dignitaries and Banner",
+        eventIds: ["aws-installation"],
+      },
+      {
+        id: "aws-installation-3",
+        src: "/hall_of_fame/aws-guest.jpeg",
+        alt: "AWS Installation — Keynote Speaker",
+        eventIds: ["aws-installation"],
+      },
+      {
+        id: "aws-installation-4",
+        src: "/hall_of_fame/aws-panel.jpeg",
+        alt: "AWS Installation — Panel Discussion",
+        eventIds: ["aws-installation"],
+      },
+      {
+        id: "aws-installation-5",
+        src: "/hall_of_fame/aws-welcome.jpeg",
+        alt: "AWS Installation — Welcome Ceremony",
+        eventIds: ["aws-installation"],
+      },
+      {
+        id: "aws-installation-6",
+        src: "/hall_of_fame/aws-gift.jpeg",
+        alt: "AWS Installation — Token of Appreciation",
+        eventIds: ["aws-installation"],
+      },
+    ],
+  },
 ];
 
 /** Flat list of every photo, in display order. */

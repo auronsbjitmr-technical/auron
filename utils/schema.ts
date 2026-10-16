@@ -105,6 +105,9 @@ export function getWebPageSchema(url: string, name: string, description: string,
  */
 const EVENT_IMAGE_DIMENSIONS: Record<string, readonly [number, number]> = {
   "/assets/alumni-interaction.jpg": [1948, 3464],
+  "/assets/aws-cover.png": [1200, 675],
+  "/assets/aws-installation.jpg": [1280, 720],
+  "/logo/aws.png": [578, 346],
   "/assets/canava.png": [1236, 1600],
   "/assets/git-second-year.png": [843, 1264],
   "/assets/git-third-year.png": [843, 1264],

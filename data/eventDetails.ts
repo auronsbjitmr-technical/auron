@@ -335,6 +335,23 @@ export const eventDetails: EventDetail[] = [
     about:
       "The Viksit Bharat Hackathon brought teams together to build technology aimed at the goals of a developed nation. Ideas ranged from smart agriculture and education tools to civic participation platforms, judged on originality, implementation and the social impact of the final build.",
   },
+  {
+    slug: "aws-installation",
+    order: 14, // [EDITABLE PLACEHOLDER: Adjust number to change card order in the grid]
+    title: "AWS Installation",
+    category: "CEREMONY",
+    wing: "technical",
+    date: "Aug 10, 2026", // [EDITABLE PLACEHOLDER: Update with exact event date]
+    dateISO: "2026-08-10T10:00:00", // [EDITABLE PLACEHOLDER: Must be past date to appear in Past Events]
+    time: "10:00 AM", // [EDITABLE PLACEHOLDER: Update with exact event time]
+    venue: "S.B. Jain Institute of Technology, Management and Research, Nagpur", // [EDITABLE PLACEHOLDER: Update venue]
+    image: "/assets/aws-cover.png",
+    description:
+      "Official installation ceremony of the AWS Student Builder Group at SBJITMR, inaugurating the student cloud community with keynote sessions on cloud technologies and builder pathways.",
+    about:
+      "The AWS Installation ceremony marks the official launch of the AWS Student Builder Group at S.B. Jain Institute of Technology, Management and Research. The event brings together cloud enthusiasts, student architects, and developers to explore Amazon Web Services, cloud computing, and real-world builder architectures. Featuring inaugural keynotes and interactive discussions, this milestone fosters practical cloud innovation and professional certification journeys for students across departments.",
+    eligibility: "Open to all students",
+  },
 
   // ---------------------------------------------------------------------------
   // Kept reachable at /events/<slug> but hidden from the Timeline / Events

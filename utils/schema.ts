@@ -109,6 +109,7 @@ const EVENT_IMAGE_DIMENSIONS: Record<string, readonly [number, number]> = {
   "/assets/aws-installation.jpg": [1280, 720],
   "/logo/aws.png": [578, 346],
   "/assets/canava.png": [1236, 1600],
+  "/assets/code-encore.jpg": [1024, 576],
   "/assets/git-second-year.png": [843, 1264],
   "/assets/git-third-year.png": [843, 1264],
   "/assets/hack-sprint.jpg": [720, 1040],

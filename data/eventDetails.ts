@@ -352,6 +352,23 @@ export const eventDetails: EventDetail[] = [
       "The AWS Installation ceremony marks the official launch of the AWS Student Builder Group at S.B. Jain Institute of Technology, Management and Research. The event brings together cloud enthusiasts, student architects, and developers to explore Amazon Web Services, cloud computing, and real-world builder architectures. Featuring inaugural keynotes and interactive discussions, this milestone fosters practical cloud innovation and professional certification journeys for students across departments.",
     eligibility: "Open to all students",
   },
+  {
+    slug: "code-encore",
+    order: 15, // [EDITABLE PLACEHOLDER: Adjust number to change card order in the grid]
+    title: "Code Encore",
+    category: "COMPETITION",
+    wing: "technical",
+    date: "12 & 13 Oct, 2026",
+    dateISO: "2026-10-13T15:30:00",
+    time: "3:30 PM",
+    venue: "S.B. Jain Institute of Technology, Management and Research, Nagpur",
+    image: "/assets/code-encore.jpg",
+    description:
+      "A debugging competition where students tested their programming skills, identified errors, and solved coding challenges.",
+    about:
+      "Code Encore was a debugging competition designed to challenge students' programming and problem-solving skills. Participants identified and corrected errors in code, tested their logical thinking, and worked to solve debugging challenges. The event provided a competitive environment for students to improve their coding skills and gain practical experience.",
+    eligibility: "ML & IT Department Students",
+  },
 
   // ---------------------------------------------------------------------------
   // Kept reachable at /events/<slug> but hidden from the Timeline / Events

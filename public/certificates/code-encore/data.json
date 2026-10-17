@@ -1,105 +1,120 @@
 {
-"eventName": "Code Encore",
-"participants": [
-{
-"name": "Bhumika Lekram Dandare",
-"usn": "CM25012",
-"certificate": "participation"
-},
-{
-"name": "Vidnesh Waghaye",
-"usn": "IT25060",
-"certificate": "participation"
-},
-{
-"name": "Om Manish Lokhande",
-"usn": "IT25039",
-"certificate": "participation"
-},
-{
-"name": "Arpit Ninawe",
-"usn": "IT25007",
-"certificate": "participation"
-},
-{
-"name": "Saurav Devhare",
-"usn": "IT25049",
-"certificate": "participation"
-},
-{
-"name": "Bhavesh Ravindra Mohatkar",
-"usn": "IT25074",
-"certificate": "participation"
-},
-{
-"name": "Yash Vinchurkar",
-"usn": "IT25062",
-"certificate": "participation"
-},
-{
-"name": "Kunal Jagdish Sonune",
-"usn": "IT25086",
-"certificate": "participation"
-},
-{
-"name": "Kaustubh Dharpure",
-"usn": "IT25029",
-"certificate": "participation"
-},
-{
-"name": "Piyush Shankar Nagose",
-"usn": "CM25098",
-"certificate": "participation"
-},
-{
-"name": "Arnav Yogesh Umbare",
-"usn": "IT26D002",
-"certificate": "participation"
-},
-{
-"name": "Anmol Umeshwar Chaubey",
-"usn": "IT25067",
-"certificate": "participation"
-},
-{
-"name": "Aryan Suresh Shastrakar",
-"usn": "CM25070",
-"certificate": "participation"
-},
-{
-"name": "Gauri Sangewar",
-"usn": "IT25079",
-"certificate": "participation"
-},
-{
-"name": "Vedant Sawale",
-"usn": "IT26D015",
-"certificate": "participation"
-},
-{
-"name": "Nikhil Sanjay Uke",
-"usn": "IT25037",
-"certificate": "participation"
-},
-{
-"name": "Mohammad Muntazir",
-"usn": "IT25036",
-"certificate": "participation"
-},
-{
-"name": "Pranay Omprakash Yadav",
-"usn": "CM25043",
-"certificate": "participation"
-},
-{
-"name": "Rutuja Chandrashekhar Durbule",
-"usn": "IT25045",
-"certificate": "participation"
-},
-{
-"name": "Rishabh Saroj",
-"usn": "CM25046",
-"certificate": "participation"
-}
-]
+    "eventName": "Code Encore",
+    "participants": [
+        {
+            "name": "Bhumika Lekram Dandare",
+            "usn": "CM25012",
+            "certificate": "participation"
+        },
+        {
+            "name": "Vidnesh Waghaye",
+            "usn": "IT25060",
+            "certificate": "participation"
+        },
+        {
+            "name": "Om Manish Lokhande",
+            "usn": "IT25039",
+            "certificate": "participation"
+        },
+        {
+            "name": "Arpit Ninawe",
+            "usn": "IT25007",
+            "certificate": "participation"
+        },
+        {
+            "name": "Saurav Devhare",
+            "usn": "IT25049",
+            "certificate": "participation"
+        },
+        {
+            "name": "Bhavesh Ravindra Mohatkar",
+            "usn": "IT25074",
+            "certificate": "participation"
+        },
+        {
+            "name": "Yash Vinchurkar",
+            "usn": "IT25062",
+            "certificate": "participation"
+        },
+        {
+            "name": "Kunal Jagdish Sonune",
+            "usn": "IT25086",
+            "certificate": "participation"
+        },
+        {
+            "name": "Kaustubh Dharpure",
+            "usn": "IT25029",
+            "certificate": "participation"
+        },
+        {
+            "name": "Piyush Shankar Nagose",
+            "usn": "CM25098",
+            "certificate": "participation"
+        },
+        {
+            "name": "Arnav Yogesh Umbare",
+            "usn": "IT26D002",
+            "certificate": "participation"
+        },
+        {
+            "name": "Anmol Umeshwar Chaubey",
+            "usn": "IT25067",
+            "certificate": "participation"
+        },
+        {
+            "name": "Aryan Suresh Shastrakar",
+            "usn": "CM25070",
+            "certificate": "participation"
+        },
+        {
+            "name": "Gauri Sangewar",
+            "usn": "IT25079",
+            "certificate": "participation"
+        },
+        {
+            "name": "Vedant Sawale",
+            "usn": "IT26D015",
+            "certificate": "participation"
+        },
+        {
+            "name": "Nikhil Sanjay Uke",
+            "usn": "IT25037",
+            "certificate": "participation"
+        },
+        {
+            "name": "Mohammad Muntazir",
+            "usn": "IT25036",
+            "certificate": "participation"
+        },
+        {
+            "name": "Pranay Omprakash Yadav",
+            "usn": "CM25043",
+            "certificate": "participation"
+        },
+        {
+            "name": "Rutuja Chandrashekhar Durbule",
+            "usn": "IT25045",
+            "certificate": "participation"
+        },
+        {
+            "name": "Rishabh Saroj",
+            "usn": "CM25046",
+            "certificate": "participation"
+        },
+        {
+            "name": "Bhumika Dhakne",
+            "usn": "IT25075",
+            "certificate": "participation"
+        },
+        {
+            "name": "Tejal Rajkumar Hedau",
+            "usn": "CM25060",
+            "certificate": "participation"
+        },
+        {
+            "name": "Vedant Waghmare",
+            "usn": "IT25059",
+            "certificate": "participation"
+        }
+    ]
 }

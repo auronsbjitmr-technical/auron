@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import CustomCursor from "./CustomCursor";
+import MagneticEffect from "./MagneticEffect";
 import EventModal from "./EventModal";
 import Lightbox from "./Lightbox";
 
@@ -53,7 +53,7 @@ export default function GlobalModals() {
 
   return (
     <>
-      <CustomCursor />
+      <MagneticEffect />
       
       {modalOpen && (
         <EventModal 

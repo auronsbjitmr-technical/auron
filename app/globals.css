@@ -324,67 +324,6 @@ html.global-loading .loader-wrapper {
   }
 }
 
-/* --- Custom Cursor --- */
-.custom-cursor {
-  width: 8px;
-  height: 8px;
-  background: var(--color-gold);
-  border-radius: var(--radius-full);
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 10001;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, background-color 0.2s;
-}
-
-.custom-cursor-follower {
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--color-gold);
-  border-radius: var(--radius-full);
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 10001;
-  transform: translate(-50%, -50%);
-  transition: transform 0.08s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s, background-color 0.3s;
-}
-
-/* Cursor States */
-.cursor-hover {
-  width: 14px;
-  height: 14px;
-  background-color: var(--color-gold-light);
-}
-
-.cursor-follower-hover {
-  transform: translate(-50%, -50%) scale(1.6);
-  border-color: var(--color-gold-light);
-  background-color: rgba(var(--accent-rgb), 0.08);
-}
-
-.cursor-click {
-  width: 6px;
-  height: 6px;
-  background-color: var(--color-gold);
-}
-
-.cursor-follower-click {
-  transform: translate(-50%, -50%) scale(0.8);
-  border-color: var(--color-gold);
-}
-
-@media (max-width: 1024px) {
-
-  .custom-cursor,
-  .custom-cursor-follower {
-    display: none !important;
-  }
-}
-
 /* --- Premium Glassmorphism Cards --- */
 .glass-card {
   background: var(--bg-glass);

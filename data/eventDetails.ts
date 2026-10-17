@@ -234,33 +234,6 @@ export const eventDetails: EventDetail[] = [
       "Covers Git, GitHub, and deploying on Vercel",
     ],
   },
-  {
-    slug: "interclg-hackathon",
-    order: 12,
-    title: "InterClg Hackathon",
-    category: "HACKATHON",
-    wing: "technical",
-    date: "Oct 08, 2026",
-    dateISO: "2026-10-08T00:00:00",
-    time: "9:00 AM",
-    venue: "S.B. Jain Institute of Technology, Management and Research, Nagpur",
-    image: "/logo/auron.png",
-    description:
-      "Problem statement with PPT round (24 hours). Rs 400-600 per team (only 4 members).",
-    about:
-      "The InterClg Hackathon is an inter-college hackathon challenge spanning 24 hours. Teams of exactly 4 members will work on a given problem statement and present their solution through a PPT round. This event brings together talented developers from multiple colleges to compete, collaborate, and innovate. Teams are evaluated on technical implementation, creativity, presentation, and feasibility.",
-    registrationFee: "Rs. 400-600 per team",
-    teamSize: "4 members per team",
-    rules: [
-      "Teams of exactly 4 members",
-      "24-hour hackathon duration",
-      "Problem statement revealed at the start",
-      "PPT round for final evaluation",
-      "Registration fee: Rs. 400-600 per team",
-      "Open to participants from multiple colleges",
-    ],
-  },
-
   // ---------------------------------------------------------------------------
   // Added to match the forum's flow in the Timeline / Events tabs.
   // `date` and `dateISO` must always be updated together.

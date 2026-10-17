@@ -3,7 +3,7 @@ import Image from "next/image";
 const COLLABORATORS = [
   { name: "Hack with India", logo: "/logo/hwi.jpg" },
   { name: "Computer Society Of India (CSI)", logo: "/logo/csi.jpg" },
-  { name: "Amazon Web Services (AWS)", logo: "/logo/aws.png" },
+  { name: "Amazon Web Services (AWS)", logo: "/logo/aws.jpeg" },
 ];
 
 export default function Sponsors() {

@@ -73,7 +73,7 @@ export const eventDetails: EventDetail[] = [
     dateISO: "2026-07-25T18:30:00",
     time: "6:30 PM",
     venue: "S.B. Jain Institute of Technology, Management and Research, Nagpur",
-    image: "/hall_of_fame/forum-installation.jpg",
+    image: "/logo/auron.png",
     description:
       "The official installation ceremony of Auron's new forum body. Marks the beginning of a fresh term of leadership, vision, and community building.",
     about:
@@ -318,7 +318,7 @@ export const eventDetails: EventDetail[] = [
     dateISO: "2026-08-10T10:00:00", // [EDITABLE PLACEHOLDER: Must be past date to appear in Past Events]
     time: "10:00 AM", // [EDITABLE PLACEHOLDER: Update with exact event time]
     venue: "S.B. Jain Institute of Technology, Management and Research, Nagpur", // [EDITABLE PLACEHOLDER: Update venue]
-    image: "/assets/aws-cover.png",
+    image: "/logo/aws.jpeg",
     description:
       "Official installation ceremony of the AWS Student Builder Group at SBJITMR, inaugurating the student cloud community with keynote sessions on cloud technologies and builder pathways.",
     about:

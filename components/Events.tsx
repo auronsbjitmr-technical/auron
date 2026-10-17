@@ -191,15 +191,6 @@ export default function Events() {
           </div>
         )}
 
-        {!featured && (
-          <div className="featured-event-container reveal-element">
-            <div className="featured-event-card glass-card" style={{ textAlign: "center", padding: "3rem" }}>
-              <h3 className="featured-title-text">All events have concluded</h3>
-              <p className="featured-desc-text">Check back soon for new announcements!</p>
-            </div>
-          </div>
-        )}
-
         {/* Other Upcoming Events */}
         {upcoming.length > 0 && (
           <div className="upcoming-events-slider reveal-element">

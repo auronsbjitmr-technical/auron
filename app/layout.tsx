@@ -98,14 +98,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cinzel.variable} ${plusJakartaSans.variable}`} suppressHydrationWarning>
+    <html lang="en" data-theme="light" className={`${cinzel.variable} ${plusJakartaSans.variable}`} suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://auron-iota.vercel.app" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){
-              var t=localStorage.getItem('theme');
-              if(t!=='dark'){document.documentElement.setAttribute('data-theme','light');}
+              try {
+                var t=localStorage.getItem('theme');
+                if(t==='dark'){
+                  document.documentElement.removeAttribute('data-theme');
+                } else {
+                  document.documentElement.setAttribute('data-theme','light');
+                }
+              } catch(e) {
+                document.documentElement.setAttribute('data-theme','light');
+              }
               
               var hasLoaded = sessionStorage.getItem('auron_session_loaded');
               if (!hasLoaded) {

@@ -8,15 +8,20 @@ import Image from "next/image";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-    const saved = localStorage.getItem("theme");
-    const shouldBeDark = saved ? saved === "dark" : true;
+    let shouldBeDark = false;
+    try {
+      const saved = localStorage.getItem("theme");
+      shouldBeDark = saved === "dark";
+    } catch {
+      shouldBeDark = false;
+    }
     setIsDark(shouldBeDark);
     if (shouldBeDark) {
       document.documentElement.removeAttribute("data-theme");
@@ -35,7 +40,9 @@ export default function Navbar() {
   const toggleTheme = useCallback(() => {
     setIsDark((prev) => {
       const next = !prev;
-      localStorage.setItem("theme", next ? "dark" : "light");
+      try {
+        localStorage.setItem("theme", next ? "dark" : "light");
+      } catch {}
       if (next) {
         document.documentElement.removeAttribute("data-theme");
       } else {
@@ -91,7 +98,8 @@ export default function Navbar() {
             <button
               className="theme-toggle"
               onClick={toggleTheme}
-              aria-label={mounted && !isDark ? "Switch to dark mode" : "Switch to light mode"}
+              aria-label={mounted && isDark ? "Switch to light mode" : "Switch to dark mode"}
+              suppressHydrationWarning
             >
               {mounted ? (
                 isDark ? (
@@ -123,7 +131,8 @@ export default function Navbar() {
           <button
             className="theme-toggle"
             onClick={toggleTheme}
-            aria-label={mounted && !isDark ? "Switch to dark mode" : "Switch to light mode"}
+            aria-label={mounted && isDark ? "Switch to light mode" : "Switch to dark mode"}
+            suppressHydrationWarning
           >
             {mounted ? (
               isDark ? (

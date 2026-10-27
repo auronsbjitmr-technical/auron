@@ -754,8 +754,13 @@ html.global-loading .loader-wrapper {
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 }
 
@@ -1190,13 +1195,11 @@ html.global-loading .loader-wrapper {
   width: 1px;
   height: 100%;
   min-height: 280px;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(var(--accent-rgb), 0.2) 20%,
-    rgba(var(--accent-rgb), 0.2) 80%,
-    transparent 100%
-  );
+  background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(var(--accent-rgb), 0.2) 20%,
+      rgba(var(--accent-rgb), 0.2) 80%,
+      transparent 100%);
   position: relative;
 }
 
@@ -1385,56 +1388,143 @@ html.global-loading .loader-wrapper {
 }
 
 @keyframes geminiTwinkle {
-  0%, 100% { opacity: 0; transform: scale(0.15) rotate(0deg); }
-  6% { opacity: 0.9; transform: scale(0.8) rotate(calc(var(--rotate, 0deg) + 5deg)); }
-  12% { opacity: 0.5; transform: scale(0.5) rotate(var(--rotate, 0deg)); }
-  22% { opacity: 1; transform: scale(1.1) rotate(calc(var(--rotate, 0deg) - 8deg)); }
-  35% { opacity: 0.3; transform: scale(0.3) rotate(var(--rotate, 0deg)); }
-  50% { opacity: 0; transform: scale(0.15) rotate(0deg); }
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.15) rotate(0deg);
+  }
+
+  6% {
+    opacity: 0.9;
+    transform: scale(0.8) rotate(calc(var(--rotate, 0deg) + 5deg));
+  }
+
+  12% {
+    opacity: 0.5;
+    transform: scale(0.5) rotate(var(--rotate, 0deg));
+  }
+
+  22% {
+    opacity: 1;
+    transform: scale(1.1) rotate(calc(var(--rotate, 0deg) - 8deg));
+  }
+
+  35% {
+    opacity: 0.3;
+    transform: scale(0.3) rotate(var(--rotate, 0deg));
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale(0.15) rotate(0deg);
+  }
 }
 
 @keyframes wave1 {
-  0% { transform: translate(0, 0) rotate(0deg) scaleY(1); }
-  33% { transform: translate(3%, -2%) rotate(0.5deg) scaleY(1.05); }
-  66% { transform: translate(-2%, 2%) rotate(-0.5deg) scaleY(0.95); }
-  100% { transform: translate(1%, -1%) rotate(0.3deg) scaleY(1.02); }
+  0% {
+    transform: translate(0, 0) rotate(0deg) scaleY(1);
+  }
+
+  33% {
+    transform: translate(3%, -2%) rotate(0.5deg) scaleY(1.05);
+  }
+
+  66% {
+    transform: translate(-2%, 2%) rotate(-0.5deg) scaleY(0.95);
+  }
+
+  100% {
+    transform: translate(1%, -1%) rotate(0.3deg) scaleY(1.02);
+  }
 }
 
 @keyframes wave2 {
-  0% { transform: translate(0, 0) rotate(0deg) scaleX(1); }
-  33% { transform: translate(-3%, 2%) rotate(-0.5deg) scaleX(1.03); }
-  66% { transform: translate(2%, -1%) rotate(0.5deg) scaleX(0.97); }
-  100% { transform: translate(-1%, 3%) rotate(-0.3deg) scaleX(1.01); }
+  0% {
+    transform: translate(0, 0) rotate(0deg) scaleX(1);
+  }
+
+  33% {
+    transform: translate(-3%, 2%) rotate(-0.5deg) scaleX(1.03);
+  }
+
+  66% {
+    transform: translate(2%, -1%) rotate(0.5deg) scaleX(0.97);
+  }
+
+  100% {
+    transform: translate(-1%, 3%) rotate(-0.3deg) scaleX(1.01);
+  }
 }
 
 @keyframes wave3 {
-  0% { transform: translate(0, 0) rotate(0.3deg); }
-  50% { transform: translate(4%, -3%) rotate(-0.5deg); }
-  100% { transform: translate(-2%, 1%) rotate(0.4deg); }
+  0% {
+    transform: translate(0, 0) rotate(0.3deg);
+  }
+
+  50% {
+    transform: translate(4%, -3%) rotate(-0.5deg);
+  }
+
+  100% {
+    transform: translate(-2%, 1%) rotate(0.4deg);
+  }
 }
 
 @keyframes wave4 {
-  0% { transform: translate(0, 0) rotate(-0.2deg); }
-  50% { transform: translate(-3%, 4%) rotate(0.6deg); }
-  100% { transform: translate(2%, -2%) rotate(-0.3deg); }
+  0% {
+    transform: translate(0, 0) rotate(-0.2deg);
+  }
+
+  50% {
+    transform: translate(-3%, 4%) rotate(0.6deg);
+  }
+
+  100% {
+    transform: translate(2%, -2%) rotate(-0.3deg);
+  }
 }
 
 @keyframes wave5 {
-  0% { transform: translate(0, 0) rotate(0.1deg) scale(1); }
-  50% { transform: translate(2%, -4%) rotate(-0.4deg) scale(1.03); }
-  100% { transform: translate(-3%, 2%) rotate(0.3deg) scale(0.97); }
+  0% {
+    transform: translate(0, 0) rotate(0.1deg) scale(1);
+  }
+
+  50% {
+    transform: translate(2%, -4%) rotate(-0.4deg) scale(1.03);
+  }
+
+  100% {
+    transform: translate(-3%, 2%) rotate(0.3deg) scale(0.97);
+  }
 }
 
 @keyframes particlePulse {
-  0% { opacity: 0.3; }
-  50% { opacity: 0.9; }
-  100% { opacity: 0.3; }
+  0% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
 }
 
 @keyframes orbFloat {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(2%, -2%) scale(1.05); }
-  100% { transform: translate(-1%, 3%) scale(0.95); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(2%, -2%) scale(1.05);
+  }
+
+  100% {
+    transform: translate(-1%, 3%) scale(0.95);
+  }
 }
 
 .bearers-hierarchy {
@@ -1732,8 +1822,13 @@ html.global-loading .loader-wrapper {
 }
 
 @keyframes geoPulse {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(2%, -1%) scale(1.03); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(2%, -1%) scale(1.03);
+  }
 }
 
 /* Featured Layout */
@@ -2432,8 +2527,7 @@ html.global-loading .loader-wrapper {
   margin-left: -450px;
   z-index: 0;
   background:
-    conic-gradient(
-      from 0deg,
+    conic-gradient(from 0deg,
       transparent 0deg, rgba(40, 100, 220, 0.07) 8deg, transparent 16deg,
       transparent 24deg, rgba(50, 120, 255, 0.06) 32deg, transparent 40deg,
       transparent 48deg, rgba(40, 100, 220, 0.05) 56deg, transparent 64deg,
@@ -2449,44 +2543,44 @@ html.global-loading .loader-wrapper {
       transparent 288deg, rgba(40, 100, 220, 0.07) 296deg, transparent 304deg,
       transparent 312deg, rgba(50, 120, 255, 0.06) 320deg, transparent 328deg,
       transparent 336deg, rgba(40, 100, 220, 0.05) 344deg, transparent 352deg,
-      transparent 360deg
-    );
-  mask-image: repeating-radial-gradient(
-    circle at center,
-    black 0px, black 10px, transparent 10px, transparent 20px,
-    black 20px, black 30px, transparent 30px, transparent 44px,
-    black 44px, black 54px, transparent 54px, transparent 70px,
-    black 70px, black 80px, transparent 80px, transparent 100px,
-    black 100px, black 110px, transparent 110px, transparent 135px,
-    black 135px, black 145px, transparent 145px, transparent 175px,
-    black 175px, black 185px, transparent 185px, transparent 220px,
-    black 220px, black 230px, transparent 230px, transparent 270px,
-    black 270px, black 280px, transparent 280px, transparent 330px,
-    black 330px, black 340px, transparent 340px, transparent 400px,
-    black 400px, black 410px
-  );
-  -webkit-mask-image: repeating-radial-gradient(
-    circle at center,
-    black 0px, black 10px, transparent 10px, transparent 20px,
-    black 20px, black 30px, transparent 30px, transparent 44px,
-    black 44px, black 54px, transparent 54px, transparent 70px,
-    black 70px, black 80px, transparent 80px, transparent 100px,
-    black 100px, black 110px, transparent 110px, transparent 135px,
-    black 135px, black 145px, transparent 145px, transparent 175px,
-    black 175px, black 185px, transparent 185px, transparent 220px,
-    black 220px, black 230px, transparent 230px, transparent 270px,
-    black 270px, black 280px, transparent 280px, transparent 330px,
-    black 330px, black 340px, transparent 340px, transparent 400px,
-    black 400px, black 410px
-  );
+      transparent 360deg);
+  mask-image: repeating-radial-gradient(circle at center,
+      black 0px, black 10px, transparent 10px, transparent 20px,
+      black 20px, black 30px, transparent 30px, transparent 44px,
+      black 44px, black 54px, transparent 54px, transparent 70px,
+      black 70px, black 80px, transparent 80px, transparent 100px,
+      black 100px, black 110px, transparent 110px, transparent 135px,
+      black 135px, black 145px, transparent 145px, transparent 175px,
+      black 175px, black 185px, transparent 185px, transparent 220px,
+      black 220px, black 230px, transparent 230px, transparent 270px,
+      black 270px, black 280px, transparent 280px, transparent 330px,
+      black 330px, black 340px, transparent 340px, transparent 400px,
+      black 400px, black 410px);
+  -webkit-mask-image: repeating-radial-gradient(circle at center,
+      black 0px, black 10px, transparent 10px, transparent 20px,
+      black 20px, black 30px, transparent 30px, transparent 44px,
+      black 44px, black 54px, transparent 54px, transparent 70px,
+      black 70px, black 80px, transparent 80px, transparent 100px,
+      black 100px, black 110px, transparent 110px, transparent 135px,
+      black 135px, black 145px, transparent 145px, transparent 175px,
+      black 175px, black 185px, transparent 185px, transparent 220px,
+      black 220px, black 230px, transparent 230px, transparent 270px,
+      black 270px, black 280px, transparent 280px, transparent 330px,
+      black 330px, black 340px, transparent 340px, transparent 400px,
+      black 400px, black 410px);
   opacity: 0.8;
   animation: achievementsSpiral 40s linear infinite;
   will-change: transform;
 }
 
 @keyframes achievementsSpiral {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .achievements-spiral-layer-3,
@@ -2496,9 +2590,17 @@ html.global-loading .loader-wrapper {
 }
 
 @keyframes achievementParticlePulse {
-  0% { opacity: 0.3; }
-  50% { opacity: 0.9; }
-  100% { opacity: 0.3; }
+  0% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
 }
 
 .achievement-card {
@@ -2833,8 +2935,7 @@ html.global-loading .loader-wrapper {
   margin-top: -500px;
   margin-left: -500px;
   background:
-    conic-gradient(
-      from 0deg,
+    conic-gradient(from 0deg,
       transparent 0deg, rgba(40, 100, 220, 0.07) 8deg, transparent 16deg,
       transparent 24deg, rgba(50, 120, 255, 0.06) 32deg, transparent 40deg,
       transparent 48deg, rgba(40, 100, 220, 0.05) 56deg, transparent 64deg,
@@ -2850,36 +2951,31 @@ html.global-loading .loader-wrapper {
       transparent 288deg, rgba(40, 100, 220, 0.07) 296deg, transparent 304deg,
       transparent 312deg, rgba(50, 120, 255, 0.06) 320deg, transparent 328deg,
       transparent 336deg, rgba(40, 100, 220, 0.05) 344deg, transparent 352deg,
-      transparent 360deg
-    );
-  mask-image: repeating-radial-gradient(
-    circle at center,
-    black 0px, black 12px, transparent 12px, transparent 24px,
-    black 24px, black 36px, transparent 36px, transparent 52px,
-    black 52px, black 64px, transparent 64px, transparent 84px,
-    black 84px, black 96px, transparent 96px, transparent 120px,
-    black 120px, black 132px, transparent 132px, transparent 160px,
-    black 160px, black 172px, transparent 172px, transparent 205px,
-    black 205px, black 217px, transparent 217px, transparent 255px,
-    black 255px, black 267px, transparent 267px, transparent 310px,
-    black 310px, black 322px, transparent 322px, transparent 370px,
-    black 370px, black 382px, transparent 382px, transparent 440px,
-    black 440px, black 452px
-  );
-  -webkit-mask-image: repeating-radial-gradient(
-    circle at center,
-    black 0px, black 12px, transparent 12px, transparent 24px,
-    black 24px, black 36px, transparent 36px, transparent 52px,
-    black 52px, black 64px, transparent 64px, transparent 84px,
-    black 84px, black 96px, transparent 96px, transparent 120px,
-    black 120px, black 132px, transparent 132px, transparent 160px,
-    black 160px, black 172px, transparent 172px, transparent 205px,
-    black 205px, black 217px, transparent 217px, transparent 255px,
-    black 255px, black 267px, transparent 267px, transparent 310px,
-    black 310px, black 322px, transparent 322px, transparent 370px,
-    black 370px, black 382px, transparent 382px, transparent 440px,
-    black 440px, black 452px
-  );
+      transparent 360deg);
+  mask-image: repeating-radial-gradient(circle at center,
+      black 0px, black 12px, transparent 12px, transparent 24px,
+      black 24px, black 36px, transparent 36px, transparent 52px,
+      black 52px, black 64px, transparent 64px, transparent 84px,
+      black 84px, black 96px, transparent 96px, transparent 120px,
+      black 120px, black 132px, transparent 132px, transparent 160px,
+      black 160px, black 172px, transparent 172px, transparent 205px,
+      black 205px, black 217px, transparent 217px, transparent 255px,
+      black 255px, black 267px, transparent 267px, transparent 310px,
+      black 310px, black 322px, transparent 322px, transparent 370px,
+      black 370px, black 382px, transparent 382px, transparent 440px,
+      black 440px, black 452px);
+  -webkit-mask-image: repeating-radial-gradient(circle at center,
+      black 0px, black 12px, transparent 12px, transparent 24px,
+      black 24px, black 36px, transparent 36px, transparent 52px,
+      black 52px, black 64px, transparent 64px, transparent 84px,
+      black 84px, black 96px, transparent 96px, transparent 120px,
+      black 120px, black 132px, transparent 132px, transparent 160px,
+      black 160px, black 172px, transparent 172px, transparent 205px,
+      black 205px, black 217px, transparent 217px, transparent 255px,
+      black 255px, black 267px, transparent 267px, transparent 310px,
+      black 310px, black 322px, transparent 322px, transparent 370px,
+      black 370px, black 382px, transparent 382px, transparent 440px,
+      black 440px, black 452px);
   pointer-events: none;
   opacity: 0.8;
   animation: spiralSpin 40s linear infinite;
@@ -2897,8 +2993,7 @@ html.global-loading .loader-wrapper {
   margin-top: -400px;
   margin-left: -400px;
   background:
-    conic-gradient(
-      from 45deg,
+    conic-gradient(from 45deg,
       transparent 0deg, rgba(80, 150, 255, 0.06) 10deg, transparent 20deg,
       transparent 30deg, rgba(100, 180, 255, 0.05) 40deg, transparent 50deg,
       transparent 60deg, rgba(80, 150, 255, 0.06) 70deg, transparent 80deg,
@@ -2911,42 +3006,42 @@ html.global-loading .loader-wrapper {
       transparent 270deg, rgba(100, 180, 255, 0.05) 280deg, transparent 290deg,
       transparent 300deg, rgba(80, 150, 255, 0.06) 310deg, transparent 320deg,
       transparent 330deg, rgba(100, 180, 255, 0.05) 340deg, transparent 350deg,
-      transparent 360deg
-    );
-  mask-image: repeating-radial-gradient(
-    circle at center,
-    black 0px, black 10px, transparent 10px, transparent 22px,
-    black 22px, black 32px, transparent 32px, transparent 48px,
-    black 48px, black 58px, transparent 58px, transparent 78px,
-    black 78px, black 88px, transparent 88px, transparent 112px,
-    black 112px, black 122px, transparent 122px, transparent 150px,
-    black 150px, black 160px, transparent 160px, transparent 192px,
-    black 192px, black 202px, transparent 202px, transparent 238px,
-    black 238px, black 248px, transparent 248px, transparent 288px,
-    black 288px, black 298px, transparent 298px, transparent 342px,
-    black 342px, black 352px
-  );
-  -webkit-mask-image: repeating-radial-gradient(
-    circle at center,
-    black 0px, black 10px, transparent 10px, transparent 22px,
-    black 22px, black 32px, transparent 32px, transparent 48px,
-    black 48px, black 58px, transparent 58px, transparent 78px,
-    black 78px, black 88px, transparent 88px, transparent 112px,
-    black 112px, black 122px, transparent 122px, transparent 150px,
-    black 150px, black 160px, transparent 160px, transparent 192px,
-    black 192px, black 202px, transparent 202px, transparent 238px,
-    black 238px, black 248px, transparent 248px, transparent 288px,
-    black 288px, black 298px, transparent 298px, transparent 342px,
-    black 342px, black 352px
-  );
+      transparent 360deg);
+  mask-image: repeating-radial-gradient(circle at center,
+      black 0px, black 10px, transparent 10px, transparent 22px,
+      black 22px, black 32px, transparent 32px, transparent 48px,
+      black 48px, black 58px, transparent 58px, transparent 78px,
+      black 78px, black 88px, transparent 88px, transparent 112px,
+      black 112px, black 122px, transparent 122px, transparent 150px,
+      black 150px, black 160px, transparent 160px, transparent 192px,
+      black 192px, black 202px, transparent 202px, transparent 238px,
+      black 238px, black 248px, transparent 248px, transparent 288px,
+      black 288px, black 298px, transparent 298px, transparent 342px,
+      black 342px, black 352px);
+  -webkit-mask-image: repeating-radial-gradient(circle at center,
+      black 0px, black 10px, transparent 10px, transparent 22px,
+      black 22px, black 32px, transparent 32px, transparent 48px,
+      black 48px, black 58px, transparent 58px, transparent 78px,
+      black 78px, black 88px, transparent 88px, transparent 112px,
+      black 112px, black 122px, transparent 122px, transparent 150px,
+      black 150px, black 160px, transparent 160px, transparent 192px,
+      black 192px, black 202px, transparent 202px, transparent 238px,
+      black 238px, black 248px, transparent 248px, transparent 288px,
+      black 288px, black 298px, transparent 298px, transparent 342px,
+      black 342px, black 352px);
   opacity: 0.6;
   animation: spiralSpin 35s linear infinite reverse;
   will-change: transform;
 }
 
 @keyframes spiralSpin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .faq-list {
@@ -3834,13 +3929,11 @@ select:focus-visible {
     width: 100%;
     height: 1px;
     min-height: 0;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(var(--accent-rgb), 0.2) 20%,
-      rgba(var(--accent-rgb), 0.2) 80%,
-      transparent 100%
-    );
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(var(--accent-rgb), 0.2) 20%,
+        rgba(var(--accent-rgb), 0.2) 80%,
+        transparent 100%);
   }
 
   .vm-divider-line::before {
@@ -3975,14 +4068,27 @@ textarea {
 
 /* --- Hall of Fame Section --- */
 @keyframes hexScroll {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-120px, -69.28px); }
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-120px, -69.28px);
+  }
 }
 
 @keyframes nodePulse {
-  0% { opacity: 0.4; }
-  50% { opacity: 1; }
-  100% { opacity: 0.4; }
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
 }
 
 .hall-of-fame {
@@ -4001,15 +4107,13 @@ textarea {
   height: 200%;
   pointer-events: none;
   background:
-    repeating-conic-gradient(
-      from 0deg at 60px 34.64px,
+    repeating-conic-gradient(from 0deg at 60px 34.64px,
       transparent 0deg 60deg,
       rgba(30, 90, 200, 0.04) 60deg 120deg,
       transparent 120deg 180deg,
       rgba(30, 90, 200, 0.04) 180deg 240deg,
       transparent 240deg 300deg,
-      rgba(30, 90, 200, 0.04) 300deg 360deg
-    );
+      rgba(30, 90, 200, 0.04) 300deg 360deg);
   background-size: 120px 69.28px;
   animation: hexScroll 60s linear infinite;
   will-change: transform;
@@ -4270,7 +4374,8 @@ textarea {
   align-items: center;
   user-select: none;
   cursor: pointer;
-  height: 58px; /* Matches standard form input height with padding */
+  height: 58px;
+  /* Matches standard form input height with padding */
   box-sizing: border-box;
 }
 
@@ -4315,7 +4420,7 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  
+
   /* Open/Close Animation */
   animation: dropdownFadeSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transform-origin: top;
@@ -4326,6 +4431,7 @@ textarea {
     opacity: 0;
     transform: translateY(-8px) scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -4379,8 +4485,8 @@ textarea {
 }
 
 /* Floating Label Animation Overrides for Custom Dropdown */
-.custom-dropdown-trigger.open ~ .form-label,
-.custom-dropdown-trigger.has-value ~ .form-label {
+.custom-dropdown-trigger.open~.form-label,
+.custom-dropdown-trigger.has-value~.form-label {
   transform: translateY(-26px) scale(0.82);
   padding: 0 8px;
   background-color: var(--bg-secondary);
@@ -4389,7 +4495,7 @@ textarea {
   font-weight: 600;
 }
 
-.custom-dropdown-trigger.open ~ .form-line {
+.custom-dropdown-trigger.open~.form-line {
   width: 100%;
 }
 
@@ -5075,5 +5181,172 @@ textarea {
   .glass-card {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
+  }
+}
+
+/* ========================================================
+   INFORMATIONAL & CONTENT PAGES (Privacy Policy, Terms, etc.)
+   ======================================================== */
+
+.legal-content-page {
+  position: relative;
+  min-height: 85vh;
+  padding-top: clamp(120px, 16vh, 160px);
+  padding-bottom: 100px;
+  background: var(--bg-secondary);
+}
+
+.legal-card {
+  position: relative;
+  background: var(--bg-glass);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 48px;
+  box-shadow: var(--shadow-md);
+  transition: border-color var(--transition-normal);
+}
+
+.legal-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 36px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.legal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: rgba(var(--accent-rgb), 0.08);
+  border: 1px solid var(--border-color);
+  color: var(--color-gold);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.legal-section {
+  margin-bottom: 36px;
+}
+
+.legal-section:last-child {
+  margin-bottom: 0;
+}
+
+.legal-section-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.5px;
+}
+
+.legal-section-title span.section-num {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-gold);
+  background: rgba(var(--accent-rgb), 0.1);
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+  font-weight: 600;
+}
+
+.legal-text {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.legal-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legal-list li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.legal-list li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  opacity: 0.7;
+}
+
+.legal-list li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.legal-contact-card {
+  margin-top: 18px;
+  padding: 20px 24px;
+  border-radius: var(--radius-sm);
+  background: rgba(var(--accent-rgb), 0.04);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.legal-contact-card a {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.legal-contact-card a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .legal-content-page {
+    padding-top: 110px;
+    padding-bottom: 60px;
+  }
+
+  .legal-card {
+    padding: 28px 20px;
+  }
+
+  .legal-section-title {
+    font-size: 1.12rem;
+  }
+
+  .legal-meta {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
   }
 }
